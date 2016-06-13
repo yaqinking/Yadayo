@@ -1,0 +1,122 @@
+
+/* Class = "UILabel"; text = "Change download image type"; ObjectID = "2Zy-z6-Hu9"; */
+
+/* Class = "UITableViewSection"; headerTitle = "Preload & Offline"; ObjectID = "7X2-Yf-n3k"; */
+"7X2-Yf-n3k.headerTitle" = "预加载 & 离线";
+
+/* Class = "UILabel"; text = "Export cached images"; ObjectID = "Bqi-x9-sm6"; */
+"Bqi-x9-sm6.text" = "导出已缓存的图片";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "C63-Vb-ZHy"; */
+"C63-Vb-ZHy.text" = "Label";
+
+/* Class = "UILabel"; text = "Advanced settings"; ObjectID = "Cjl-4V-ZZa"; */
+"Cjl-4V-ZZa.text" = "高级设置";
+
+/* Class = "UILabel"; text = "Preload next page image"; ObjectID = "Gzr-5q-6Ow"; */
+"Gzr-5q-6Ow.text" = "预加载下一页图片";
+
+/* Class = "UIBarButtonItem"; title = "Export"; ObjectID = "I5S-Zk-oVW"; */
+"I5S-Zk-oVW.title" = "导出";
+
+/* Class = "UINavigationItem"; title = "Add Source"; ObjectID = "JGK-9R-eHl"; */
+"JGK-9R-eHl.title" = "添加源网站";
+
+/* Class = "UILabel"; text = "Clear cache"; ObjectID = "JNv-FE-ivg"; */
+"JNv-FE-ivg.text" = "清除图片缓存";
+
+/* Class = "UITextField"; placeholder = "Category"; ObjectID = "Lh4-jI-E42"; */
+"Lh4-jI-E42.placeholder" = "类别";
+
+/* Class = "UITableViewSection"; headerTitle = "General"; ObjectID = "Mim-ik-zdm"; */
+"Mim-ik-zdm.headerTitle" = "通用";
+
+/* Class = "UITextView"; text = "Site: Input a feed or site url.\nCategory: Add a new category or select one from saved.Leave blank will be uncategoried."; ObjectID = "OGi-0t-Pqa"; */
+"OGi-0t-Pqa.text" = "Site: Input a feed or site url.\nCategory: Add a new category or select one from saved.Leave blank will be uncategoried.";
+
+/* Class = "UILabel"; text = "Backgrond content refresh"; ObjectID = "QSx-xS-PeS"; */
+"QSx-xS-PeS.text" = "后台内容刷新";
+
+/* Class = "UILabel"; text = "0.0MB"; ObjectID = "R5c-Pu-dRM"; */
+"R5c-Pu-dRM.text" = "0.0MB";
+
+/* Class = "UIBarButtonItem"; title = "Add"; ObjectID = "R6D-To-7hQ"; */
+"R6D-To-7hQ.title" = "添加";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "RzO-dI-tor"; */
+"RzO-dI-tor.text" = "Label";
+
+/* Class = "UITextView"; text = "Konachan use these Open Source Libraries or tools\n\nAFNetworking\nhttps://github.com/AFNetworking/AFNetworking\n\nMWPhotoBrowser\nhttps://github.com/mwaterfall/MWPhotoBrowser\n\nSDWebImage\nhttps://github.com/rs/SDWebImage\n\nMBProgressHUD\nhttps://github.com/jdg/MBProgressHUD\n\nDACircularProgress\nhttps://github.com/danielamitay/DACircularProgress\n\nCocoaPods\nhttps://cocoapods.org/\n\nUIActivityIndicator-for-SDWebImage\nhttps://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage"; ObjectID = "Uud-bW-X4D"; */
+"Uud-bW-X4D.text" = "Konachan use these Open Source Libraries or tools\n\nAFNetworking\nhttps://github.com/AFNetworking/AFNetworking\n\nMWPhotoBrowser\nhttps://github.com/mwaterfall/MWPhotoBrowser\n\nSDWebImage\nhttps://github.com/rs/SDWebImage\n\nMBProgressHUD\nhttps://github.com/jdg/MBProgressHUD\n\nDACircularProgress\nhttps://github.com/danielamitay/DACircularProgress\n\nCocoaPods\nhttps://cocoapods.org/\n\nUIActivityIndicator-for-SDWebImage\nhttps://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage";
+
+/* Class = "UINavigationItem"; title = "Yadayo"; ObjectID = "WyQ-Pn-tWh"; */
+"WyQ-Pn-tWh.title" = "Yadayo";
+
+/* Class = "UILabel"; text = "Change preview image type"; ObjectID = "YbA-cV-tUJ"; */
+"YbA-cV-tUJ.text" = "改变缩略图类型";
+
+/* Class = "UILabel"; text = "Set reminder site"; ObjectID = "Zai-o9-RGJ"; */
+"Zai-o9-RGJ.text" = "设置提醒站点";
+
+/* Class = "UITableViewSection"; headerTitle = "General"; ObjectID = "a53-fq-fY9"; */
+"a53-fq-fY9.headerTitle" = "通常";
+
+/* Class = "UITextField"; placeholder = "Site Name"; ObjectID = "cG7-GX-aJp"; */
+"cG7-GX-aJp.placeholder" = "站点名称";
+
+/* Class = "UITextField"; placeholder = "Feed or Site URL"; ObjectID = "dCw-GI-SwE"; */
+"dCw-GI-SwE.placeholder" = "Feed 或者站点地址";
+
+/* Class = "UILabel"; text = "Fetch amount"; ObjectID = "fvE-yJ-rHR"; */
+"fvE-yJ-rHR.text" = "每页加载数量";
+
+/* Class = "UILabel"; text = "Offline mode"; ObjectID = "gAZ-zd-YaI"; */
+"gAZ-zd-YaI.text" = "离线模式";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "hT2-h3-3nh"; */
+"hT2-h3-3nh.title" = "完成";
+
+/* Class = "UITableViewSection"; headerTitle = "Notification"; ObjectID = "hax-nl-h1x"; */
+"hax-nl-h1x.headerTitle" = "通知";
+
+/* Class = "UILabel"; text = "Acknowledgements"; ObjectID = "mdX-z0-uQM"; */
+"mdX-z0-uQM.text" = "Acknowledgements";
+
+/* Class = "UINavigationItem"; title = "Export Options"; ObjectID = "oss-YV-R8b"; */
+"oss-YV-R8b.title" = "到处设置";
+
+/* Class = "UILabel"; text = "About"; ObjectID = "pVp-KA-2Z4"; */
+"pVp-KA-2Z4.text" = "关于";
+
+/* Class = "UISegmentedControl"; tPO-Vv-Hkq.segmentTitles[0] = "其它"; ObjectID = "tPO-Vv-Hkq"; */
+"tPO-Vv-Hkq.segmentTitles[0]" = "其它";
+
+/* Class = "UISegmentedControl"; tPO-Vv-Hkq.segmentTitles[1] = "周一"; ObjectID = "tPO-Vv-Hkq"; */
+"tPO-Vv-Hkq.segmentTitles[1]" = "周一";
+
+/* Class = "UISegmentedControl"; tPO-Vv-Hkq.segmentTitles[2] = "周二"; ObjectID = "tPO-Vv-Hkq"; */
+"tPO-Vv-Hkq.segmentTitles[2]" = "周二";
+
+/* Class = "UISegmentedControl"; tPO-Vv-Hkq.segmentTitles[3] = "周三"; ObjectID = "tPO-Vv-Hkq"; */
+"tPO-Vv-Hkq.segmentTitles[3]" = "周三";
+
+/* Class = "UISegmentedControl"; tPO-Vv-Hkq.segmentTitles[4] = "周四"; ObjectID = "tPO-Vv-Hkq"; */
+"tPO-Vv-Hkq.segmentTitles[4]" = "周四";
+
+/* Class = "UISegmentedControl"; tPO-Vv-Hkq.segmentTitles[5] = "周五"; ObjectID = "tPO-Vv-Hkq"; */
+"tPO-Vv-Hkq.segmentTitles[5]" = "周五";
+
+/* Class = "UISegmentedControl"; tPO-Vv-Hkq.segmentTitles[6] = "周六"; ObjectID = "tPO-Vv-Hkq"; */
+"tPO-Vv-Hkq.segmentTitles[6]" = "周六";
+
+/* Class = "UISegmentedControl"; tPO-Vv-Hkq.segmentTitles[7] = "周日"; ObjectID = "tPO-Vv-Hkq"; */
+"tPO-Vv-Hkq.segmentTitles[7]" = "周日";
+
+/* Class = "UIButton"; normalTitle = "Set"; ObjectID = "wrd-98-b7I"; */
+"wrd-98-b7I.normalTitle" = "设置";
+
+/* Class = "UITableViewSection"; headerTitle = "BT"; ObjectID = "xzP-cS-8AJ"; */
+"xzP-cS-8AJ.headerTitle" = "BT";
+
+/* Class = "UIButton"; normalTitle = "Add to subscribe"; ObjectID = "zyV-Mr-66W"; */
+"zyV-Mr-66W.normalTitle" = "添加到订阅";
