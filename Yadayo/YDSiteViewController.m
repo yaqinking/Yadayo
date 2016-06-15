@@ -33,6 +33,11 @@
     [self.tableView reloadData];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    self.title = @"";
+    [super viewWillDisappear:animated];
+}
+
 - (void)setupNavigationBar {
     UINavigationBar *navBar = self.navigationController.navigationBar;
     navBar.tintColor        = [UIColor whiteColor];

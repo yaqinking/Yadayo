@@ -382,12 +382,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F445B9B21CF67FC500C36A9B /* Build configuration list for PBXNativeTarget "Yadayo" */;
 			buildPhases = (
-				49328597ECB237E1F6226B04 /* 📦 Check Pods Manifest.lock */,
+				49328597ECB237E1F6226B04 /* [CP] Check Pods Manifest.lock */,
 				F445B9891CF67FC500C36A9B /* Sources */,
 				F445B98A1CF67FC500C36A9B /* Frameworks */,
 				F445B98B1CF67FC500C36A9B /* Resources */,
-				4F1B02B3117C3BD99FF3EE38 /* 📦 Embed Pods Frameworks */,
-				69B8A940CA0E0FCA86095EB9 /* 📦 Copy Pods Resources */,
+				4F1B02B3117C3BD99FF3EE38 /* [CP] Embed Pods Frameworks */,
+				69B8A940CA0E0FCA86095EB9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -402,12 +402,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F445B9B51CF67FC500C36A9B /* Build configuration list for PBXNativeTarget "YadayoTests" */;
 			buildPhases = (
-				54CD66778A7F5AE7862C9F49 /* 📦 Check Pods Manifest.lock */,
+				54CD66778A7F5AE7862C9F49 /* [CP] Check Pods Manifest.lock */,
 				F445B9A51CF67FC500C36A9B /* Sources */,
 				F445B9A61CF67FC500C36A9B /* Frameworks */,
 				F445B9A71CF67FC500C36A9B /* Resources */,
-				A608B1031984ADB217422835 /* 📦 Embed Pods Frameworks */,
-				2AF43B11C805DBAB97D1AC5D /* 📦 Copy Pods Resources */,
+				A608B1031984ADB217422835 /* [CP] Embed Pods Frameworks */,
+				2AF43B11C805DBAB97D1AC5D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -486,14 +486,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2AF43B11C805DBAB97D1AC5D /* 📦 Copy Pods Resources */ = {
+		2AF43B11C805DBAB97D1AC5D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,14 +501,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YadayoTests/Pods-YadayoTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		49328597ECB237E1F6226B04 /* 📦 Check Pods Manifest.lock */ = {
+		49328597ECB237E1F6226B04 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,14 +516,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		4F1B02B3117C3BD99FF3EE38 /* 📦 Embed Pods Frameworks */ = {
+		4F1B02B3117C3BD99FF3EE38 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,14 +531,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Yadayo/Pods-Yadayo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		54CD66778A7F5AE7862C9F49 /* 📦 Check Pods Manifest.lock */ = {
+		54CD66778A7F5AE7862C9F49 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -546,14 +546,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		69B8A940CA0E0FCA86095EB9 /* 📦 Copy Pods Resources */ = {
+		69B8A940CA0E0FCA86095EB9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,14 +561,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Yadayo/Pods-Yadayo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A608B1031984ADB217422835 /* 📦 Embed Pods Frameworks */ = {
+		A608B1031984ADB217422835 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -760,6 +760,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = moe.yaqinking.Yadayo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -774,6 +775,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = moe.yaqinking.Yadayo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
