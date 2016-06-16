@@ -71,20 +71,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UINavigationController *navCon = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YDTagDetailNav"];
+    YDTag *tag = [self tagForRowAtIndexPath:indexPath];
+    YDPhotosViewController *photosVC = navCon.childViewControllers[0];
+    photosVC.tag = tag;
+    photosVC.site = self.site;
+    if (iPad) {
+        [self.splitViewController presentViewController:navCon animated:YES completion:nil];
+    } else if (iPhone) {
+        [self.navigationController pushViewController:photosVC animated:YES];
+    }
 }
 
 - (YDTag *)tagForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"createDate" ascending:YES];
     return [[self.site.tags sortedArrayUsingDescriptors:@[sortDescriptor]] objectAtIndex:indexPath.row];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:YDShowPhotosSegueIdentifier]) {
-        YDTag *tag = [self tagForRowAtIndexPath:self.tableView.indexPathForSelectedRow];
-        YDPhotosViewController *photosVC = segue.destinationViewController;
-        photosVC.tag = tag;
-        photosVC.site = self.site;
-    }
 }
 
 - (UIAlertController *)addTagAlertController {

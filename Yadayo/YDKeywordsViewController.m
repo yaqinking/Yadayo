@@ -10,6 +10,7 @@
 #import "YDCoreDataStackManager.h"
 #import "YDAddKeywordViewController.h"
 #import "YDKeywordDetailViewController.h"
+#import "YDRSSNavigationController.h"
 
 @interface YDKeywordsViewController ()<NSFetchedResultsControllerDelegate>
 
@@ -57,6 +58,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UINavigationController *navCon = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YDBTSiteNav"];
+    YDKeywordDetailViewController *kwdDVC = navCon.childViewControllers[0];
+    YDKeyword *keyword = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    kwdDVC.keyword = keyword;
+    kwdDVC.site = self.site;
+    kwdDVC.title = keyword.name;
+    [self.splitViewController showDetailViewController:navCon sender:nil];
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
@@ -68,12 +76,6 @@
     if ([segue.identifier isEqualToString:YDAddKeywordSegueIdentifier]) {
         YDAddKeywordViewController *addKeywordVC = segue.destinationViewController;
         addKeywordVC.site = self.site;
-    } else if ([segue.identifier isEqualToString:YDShowKeywordDetailSegueIdentifier]) {
-        YDKeywordDetailViewController *kwdDVC = segue.destinationViewController;
-        YDKeyword *keyword = [self.fetchedResultsController objectAtIndexPath:self.tableView.indexPathForSelectedRow];
-        kwdDVC.keyword = keyword;
-        kwdDVC.site = self.site;
-        kwdDVC.title = keyword.name;
     }
 }
 

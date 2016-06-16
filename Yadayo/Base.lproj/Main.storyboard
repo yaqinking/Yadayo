@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gJK-kU-S2C">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rle-a1-bpb">
     <dependencies>
         <development version="7000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -106,7 +106,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I9d-rF-TA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-486" y="-2986"/>
+            <point key="canvasLocation" x="-726" y="-3290"/>
         </scene>
         <!--Site View Controller-->
         <scene sceneID="jJS-85-qrc">
@@ -134,23 +134,19 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                     <navigationItem key="navigationItem" id="WyQ-Pn-tWh">
                         <barButtonItem key="leftBarButtonItem" image="Setting" id="ijr-Ay-UAB">
                             <connections>
-                                <segue destination="ayQ-er-r6u" kind="popoverPresentation" popoverAnchorBarButtonItem="ijr-Ay-UAB" id="Ftz-qG-vk7">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <segue destination="ayQ-er-r6u" kind="show" id="Ftz-qG-vk7"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pWH-3N-pax">
                             <connections>
-                                <segue destination="8tr-BI-51A" kind="popoverPresentation" identifier="Add Source" popoverAnchorBarButtonItem="pWH-3N-pax" id="dQx-jb-God">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <segue destination="8tr-BI-51A" kind="presentation" identifier="Add Source" id="dQx-jb-God"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l9K-7y-uUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-499" y="-2198"/>
+            <point key="canvasLocation" x="-1483" y="-2406"/>
         </scene>
         <!--Tags View Controller-->
         <scene sceneID="saw-t5-ii1">
@@ -168,9 +164,6 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="uwl-df-QlT" kind="show" identifier="Show Photos" id="OOj-L1-Q5J"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -181,7 +174,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ebT-Ri-r1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="341" y="-2642"/>
+            <point key="canvasLocation" x="331" y="-2848"/>
         </scene>
         <!--Keywords View Controller-->
         <scene sceneID="7LX-Er-A9e">
@@ -199,9 +192,6 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Ieu-hY-by2" kind="show" identifier="Show Keyword Detail" id="vDm-5L-bFh"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -212,16 +202,14 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                     <navigationItem key="navigationItem" id="Tgy-gi-yg0">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3IC-oY-RDR">
                             <connections>
-                                <segue destination="EGe-df-t1o" kind="popoverPresentation" identifier="Add Keyword" popoverAnchorBarButtonItem="3IC-oY-RDR" id="ua0-VY-dEA">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <segue destination="EGe-df-t1o" kind="show" identifier="Add Keyword" id="ua0-VY-dEA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bnT-bF-l75" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1818" y="-1819"/>
+            <point key="canvasLocation" x="1018" y="-1911"/>
         </scene>
         <!--Add Keyword View Controller-->
         <scene sceneID="8jK-fS-2XC">
@@ -236,7 +224,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tPO-Vv-Hkq">
-                                <rect key="frame" x="20" y="93" width="560" height="29"/>
+                                <rect key="frame" x="20" y="137" width="560" height="29"/>
                                 <segments>
                                     <segment title="Other"/>
                                     <segment title="Mon"/>
@@ -249,12 +237,12 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                                 </segments>
                             </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u8j-Mw-zeA">
-                                <rect key="frame" x="20" y="40" width="560" height="30"/>
+                                <rect key="frame" x="20" y="84" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyV-Mr-66W">
-                                <rect key="frame" x="20" y="140" width="560" height="30"/>
+                                <rect key="frame" x="20" y="184" width="560" height="30"/>
                                 <state key="normal" title="Add to subscribe"/>
                                 <connections>
                                     <action selector="addKeyword:" destination="EGe-df-t1o" eventType="touchUpInside" id="EmO-HX-KLd"/>
@@ -281,7 +269,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8k5-Li-W4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2536" y="-2143"/>
+            <point key="canvasLocation" x="1935" y="-2115"/>
         </scene>
         <!--Keyword Detail View Controller-->
         <scene sceneID="gMz-fO-xPf">
@@ -299,14 +287,14 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="84"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzO-dI-tor">
-                                            <rect key="frame" x="16" y="8" width="351" height="38"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzO-dI-tor">
+                                            <rect key="frame" x="16" y="8" width="576" height="38"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C63-Vb-ZHy">
-                                            <rect key="frame" x="16" y="54" width="351" height="22"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C63-Vb-ZHy">
+                                            <rect key="frame" x="16" y="54" width="576" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="5g8-3w-EW0"/>
                                             </constraints>
@@ -336,10 +324,11 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                             <outlet property="delegate" destination="Ieu-hY-by2" id="6fZ-VT-IJa"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="2zR-kf-4ZC"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kI7-YJ-kmy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3360" y="-1388"/>
+            <point key="canvasLocation" x="2754" y="-1418"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Omy-DG-vrX">
@@ -357,7 +346,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zlc-A2-rTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1207" y="-2198"/>
+            <point key="canvasLocation" x="-2367" y="-2398"/>
         </scene>
         <!--Photos View Controller-->
         <scene sceneID="qzU-go-IRK">
@@ -374,7 +363,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="AVO-Hs-emf" customClass="YDPhotoCollectionViewCell">
-                                <rect key="frame" x="0.0" y="0.0" width="155" height="135"/>
+                                <rect key="frame" x="0.0" y="64" width="155" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="155" height="135"/>
@@ -405,7 +394,19 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mX9-s3-wQS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1033" y="-2636"/>
+            <point key="canvasLocation" x="1935" y="-2838"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="JbH-gB-tBN">
+            <objects>
+                <splitViewController id="rle-a1-bpb" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="gJK-kU-S2C" kind="relationship" relationship="masterViewController" id="XAw-df-J6m"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1v0-Li-KRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3191" y="-2411"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="uX7-IT-VIl">
@@ -434,8 +435,8 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                                                         <rect key="frame" x="16" y="12" width="205" height="21"/>
                                                     </variation>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fSJ-aF-6SK">
-                                                    <rect key="frame" x="313" y="6" width="51" height="31"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fSJ-aF-6SK">
+                                                    <rect key="frame" x="538" y="6" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="changeOfflineMode:" destination="ayQ-er-r6u" eventType="valueChanged" id="FY2-hm-9Rm"/>
                                                     </connections>
@@ -510,7 +511,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vo6-kd-uin" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-970" y="-1375"/>
+            <point key="canvasLocation" x="-2874" y="-671"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="vOQ-Gz-qaU">
@@ -524,7 +525,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                             <tableViewSection headerTitle="General" id="Mim-ik-zdm">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="kec-Az-osI">
-                                        <rect key="frame" x="0.0" y="50" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="114" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kec-Az-osI" id="oKe-N4-sub">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -558,7 +559,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="iqV-Sn-1ba">
-                                        <rect key="frame" x="0.0" y="94" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="158" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iqV-Sn-1ba" id="DMC-9k-j7z">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
@@ -584,7 +585,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="1ik-zg-U27">
-                                        <rect key="frame" x="0.0" y="138" width="600" height="50"/>
+                                        <rect key="frame" x="0.0" y="202" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1ik-zg-U27" id="tfk-WQ-RAO">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
@@ -628,7 +629,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="82p-Xl-90B">
-                                        <rect key="frame" x="0.0" y="188" width="600" height="50"/>
+                                        <rect key="frame" x="0.0" y="252" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="82p-Xl-90B" id="SeF-a4-Qbe">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
@@ -651,7 +652,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zYg-AI-7VH">
-                                        <rect key="frame" x="0.0" y="238" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="302" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zYg-AI-7VH" id="7On-Bg-1KY">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -675,7 +676,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2lm-QO-Oep">
-                                        <rect key="frame" x="0.0" y="282" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="346" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2lm-QO-Oep" id="rDn-z5-AXj">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -708,7 +709,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                             <tableViewSection headerTitle="Preload &amp; Offline" id="7X2-Yf-n3k">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6vT-dq-EhD">
-                                        <rect key="frame" x="0.0" y="377" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="441" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6vT-dq-EhD" id="IVR-ee-0tM">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -739,7 +740,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WJQ-aO-kgC">
-                                        <rect key="frame" x="0.0" y="421" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="485" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WJQ-aO-kgC" id="phd-kE-oe6">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -774,7 +775,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                             <tableViewSection headerTitle="BT" id="xzP-cS-8AJ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="j20-oc-iIN">
-                                        <rect key="frame" x="0.0" y="516" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="580" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j20-oc-iIN" id="h36-B2-g50">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
@@ -819,7 +820,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7b4-t8-qbY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-335" y="-1382"/>
+            <point key="canvasLocation" x="-1483" y="-1558"/>
         </scene>
         <!--Reminder Setting View Controller-->
         <scene sceneID="TBc-TA-ebY">
@@ -831,7 +832,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SiteCell" id="kg0-OW-TY4">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kg0-OW-TY4" id="FaN-Rh-FNJ">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -847,7 +848,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QOj-tw-dew" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-25" y="-582"/>
+            <point key="canvasLocation" x="-745" y="-606"/>
         </scene>
         <!--Export Options-->
         <scene sceneID="LDq-j6-VeR">
@@ -859,7 +860,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExportCell" id="lGp-1v-3eD">
-                                <rect key="frame" x="0.0" y="50" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="114" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lGp-1v-3eD" id="bX2-dg-l1F">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -902,7 +903,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hhx-Iq-Ror" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-881" y="-572"/>
+            <point key="canvasLocation" x="-1385" y="-572"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="b7I-lh-w9l">
@@ -917,7 +918,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uud-bW-X4D">
-                                <rect key="frame" x="20" y="20" width="560" height="580"/>
+                                <rect key="frame" x="20" y="64" width="560" height="536"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Konachan use these Open Source Libraries or tools
 
@@ -960,7 +961,7 @@ https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHg-xP-diA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1508" y="-572"/>
+            <point key="canvasLocation" x="-2068" y="-660"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="chm-ZR-Nzf">
@@ -978,7 +979,7 @@ https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CaD-iK-3n1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1142" y="-1819"/>
+            <point key="canvasLocation" x="342" y="-1911"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="SdQ-ku-XNi">
@@ -996,20 +997,20 @@ https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage</string>
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyN-uv-xnr">
-                                            <rect key="frame" x="16" y="8" width="351" height="75"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyN-uv-xnr">
+                                            <rect key="frame" x="16" y="8" width="576" height="76"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkZ-8V-gfF">
-                                            <rect key="frame" x="334" y="95" width="33" height="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkZ-8V-gfF">
+                                            <rect key="frame" x="561" y="96" width="31" height="15"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJR-nY-9YT">
-                                            <rect key="frame" x="16" y="95" width="306" height="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJR-nY-9YT">
+                                            <rect key="frame" x="16" y="96" width="533" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="ZDU-DG-Yp1"/>
                                             </constraints>
@@ -1048,7 +1049,7 @@ https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gul-uA-JPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1954" y="-1098"/>
+            <point key="canvasLocation" x="1169" y="-582"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="244-rR-jpy">
@@ -1066,12 +1067,12 @@ https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pCZ-SH-T4U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2670" y="-1040"/>
+            <point key="canvasLocation" x="2037" y="-582"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZbY-Dl-eYm">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8h1-vz-Lo1" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="YDRSSNav" automaticallyAdjustsScrollViewInsets="NO" id="8h1-vz-Lo1" customClass="YDRSSNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vvZ-vQ-NFg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1084,7 +1085,43 @@ https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d6o-bG-h9D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1142" y="-1098"/>
+            <point key="canvasLocation" x="331" y="-582"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qRG-Sa-igq">
+            <objects>
+                <navigationController storyboardIdentifier="YDBTSiteNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="t0Y-R1-GyH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Vb-rP-9sM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ieu-hY-by2" kind="relationship" relationship="rootViewController" id="3Bq-S0-Nuj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XM9-1U-Xeq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1930" y="-1418"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="z8O-cH-u9a">
+            <objects>
+                <navigationController storyboardIdentifier="YDTagDetailNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="A27-pS-Boo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UJK-eg-ysr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uwl-df-QlT" kind="relationship" relationship="rootViewController" id="rYG-5m-q9J"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OjW-6g-cNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1083" y="-2838"/>
         </scene>
     </scenes>
     <resources>

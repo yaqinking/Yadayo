@@ -33,6 +33,7 @@
     [self setupParsingData];
     [self fetchSavedData];
     [self setupFeedParser];
+    NSLog(@"Self Nav Con %@ Class %@",self.navigationController, [self.navigationController class]);
 }
 
 - (void)setupTableView {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3784FC6218CFC9D324F21FBF /* libPods-YadayoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 304D41618CAC866AA96ED808 /* libPods-YadayoTests.a */; };
+		F41787D61D11A97F001B153B /* YDRSSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41787D51D11A97F001B153B /* YDRSSNavigationController.m */; };
 		F445B9921CF67FC500C36A9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F445B9911CF67FC500C36A9B /* main.m */; };
 		F445B9951CF67FC500C36A9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F445B9941CF67FC500C36A9B /* AppDelegate.m */; };
 		F445B9981CF67FC500C36A9B /* YDSiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F445B9971CF67FC500C36A9B /* YDSiteViewController.m */; };
@@ -72,6 +73,8 @@
 		7F6FA23C817EA20B1534E218 /* Pods-Yadayo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yadayo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Yadayo/Pods-Yadayo.release.xcconfig"; sourceTree = "<group>"; };
 		BFE9F8087398D2E87FC050B0 /* libPods-Yadayo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yadayo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1500FFAF2FDA9C02E071F7F /* Pods-Yadayo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yadayo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Yadayo/Pods-Yadayo.debug.xcconfig"; sourceTree = "<group>"; };
+		F41787D41D11A97F001B153B /* YDRSSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDRSSNavigationController.h; sourceTree = "<group>"; };
+		F41787D51D11A97F001B153B /* YDRSSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDRSSNavigationController.m; sourceTree = "<group>"; };
 		F445B98D1CF67FC500C36A9B /* Yadayo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yadayo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F445B9911CF67FC500C36A9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F445B9931CF67FC500C36A9B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -371,6 +374,8 @@
 				F4D7A5571CF86CB8009DCF81 /* YDRSSViewController.m */,
 				F4ADD00D1D026ED200793DD0 /* YDRSSDetailViewController.h */,
 				F4ADD00E1D026ED200793DD0 /* YDRSSDetailViewController.m */,
+				F41787D41D11A97F001B153B /* YDRSSNavigationController.h */,
+				F41787D51D11A97F001B153B /* YDRSSNavigationController.m */,
 			);
 			name = RSS;
 			sourceTree = "<group>";
@@ -598,6 +603,7 @@
 				F49DCE3C1CFAAA2D008E29AF /* YDKeywordsViewController.m in Sources */,
 				F445B9E51CF6981700C36A9B /* YDTagTableViewCell.m in Sources */,
 				F49DCE381CFAA498008E29AF /* YDKeyword+CoreDataProperties.m in Sources */,
+				F41787D61D11A97F001B153B /* YDRSSNavigationController.m in Sources */,
 				F49DCE391CFAA498008E29AF /* YDKeyword.m in Sources */,
 				F45312B61CFD39A50085342A /* YDUtil.m in Sources */,
 				F445B9CA1CF689B400C36A9B /* YDImage+CoreDataProperties.m in Sources */,

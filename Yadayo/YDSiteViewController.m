@@ -12,6 +12,7 @@
 #import "YDTagTableViewCell.h"
 #import "YDRSSViewController.h"
 #import "YDKeywordsViewController.h"
+#import "YDRSSNavigationController.h"
 
 @interface YDSiteViewController ()
 
@@ -111,9 +112,11 @@
 }
 
 - (void)performRSSSites:(YDSite *)site {
-    YDRSSViewController *rssVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YDRSSSites"];
+    YDRSSNavigationController *navCon = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YDRSSNav"];
+    YDRSSViewController *rssVC = navCon.childViewControllers[0];
     rssVC.site = site;
-    [self.navigationController pushViewController:rssVC animated:YES];
+    
+    [self.splitViewController showDetailViewController:navCon sender:nil];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

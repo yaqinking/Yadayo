@@ -58,6 +58,7 @@
     [self observeNotifications];
     [self setupGestures];
     [[SDImageCache sharedImageCache] setMaxMemoryCost:[self deviceMaxMemoryCost]];
+#warning 判断当前设备是 iPad 还是 iPhone 来添加 done 按钮返回到 spitViewController 里。
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -535,6 +536,7 @@
     return YES;
 }
 
+
 #pragma mark - Lazy Initialization
 
 - (NSMutableArray *)photos {
@@ -559,5 +561,10 @@
     [[SDImageCache sharedImageCache] clearMemory];
     [super didReceiveMemoryWarning];
 }
+
+- (IBAction)done:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end
