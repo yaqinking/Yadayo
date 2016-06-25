@@ -7,6 +7,7 @@
 //
 
 #import "YDPhotosViewController.h"
+#import "YDTagsViewController.h"
 #import "YDCoreDataStackManager.h"
 #import "YDPhotoCollectionViewCell.h"
 #import "YDLocalImageDataSource.h"
@@ -513,6 +514,33 @@
     }
     rightItem = [[UIBarButtonItem alloc] initWithTitle:progress style:UIBarButtonItemStyleDone target:self action:nil];
     self.navigationItem.rightBarButtonItem = rightItem;
+}
+
+- (void)photoBrowserTagsButtonPressedForPhotoAtIndex:(NSUInteger)index {
+    Picture *picture = self.photos[index];
+    NSString *title = picture.caption;
+    NSManagedObjectContext *moc = [[YDCoreDataStackManager sharedManager] managedObjectContext];
+    NSEntityDescription *siteEntityDesc = [NSEntityDescription entityForName:YDSiteEntityName inManagedObjectContext:moc];
+    NSEntityDescription *tagEntityDesc = [NSEntityDescription entityForName:YDTagEntityName inManagedObjectContext:moc];
+    YDSite *site = [[YDSite alloc] initWithEntity:siteEntityDesc insertIntoManagedObjectContext:nil];
+    site.name = self.site.name;
+    site.url = self.site.url;
+    site.postURL = self.site.postURL;
+    site.searchURL = self.site.searchURL;
+    NSArray<NSString *> *tags = [self tagsFromTitle:title];
+    [tags enumerateObjectsUsingBlock:^(NSString * _Nonnull name, NSUInteger idx, BOOL * _Nonnull stop) {
+        YDTag *tag = [[YDTag alloc] initWithEntity:tagEntityDesc insertIntoManagedObjectContext:nil];
+        tag.name = name;
+        tag.createDate = [NSDate new];
+        [site addTagsObject:tag];
+    }];
+    YDTagsViewController *tagsVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YDDanbooruSites"];
+    tagsVC.site = site;
+    [self.navigationController pushViewController:tagsVC animated:YES];
+}
+
+- (NSArray<NSString *> *)tagsFromTitle:(NSString *) title {
+    return [title componentsSeparatedByString:@" "];
 }
 
 #pragma mark - Gestures

@@ -194,6 +194,9 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToShowNextORPrePic:)];
     [self.view addGestureRecognizer:tapGesture];
+    
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Tags" style:UIBarButtonItemStylePlain target:self action:@selector(tagsButtonPressed:)];
 }
 
 - (void)performLayout {
@@ -1638,6 +1641,12 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         
     }
     
+}
+
+- (void)tagsButtonPressed:(id) sender {
+    if ([self.delegate respondsToSelector:@selector(photoBrowserTagsButtonPressedForPhotoAtIndex:)]) {
+        [self.delegate photoBrowserTagsButtonPressedForPhotoAtIndex:_currentPageIndex];
+    }
 }
 
 #pragma mark - Action Progress
