@@ -2,7 +2,7 @@
 //  YDSite+CoreDataProperties.h
 //  Yadayo
 //
-//  Created by 小笠原やきん on 16/5/29.
+//  Created by 小笠原やきん on 16/7/3.
 //  Copyright © 2016年 yaqinking. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSNumber *type;
 @property (nullable, nonatomic, retain) NSNumber *uncategoried;
 @property (nullable, nonatomic, retain) NSString *url;
+@property (nullable, nonatomic, retain) NSNumber *galleryMode;
 @property (nullable, nonatomic, retain) YDCategory *category;
 @property (nullable, nonatomic, retain) NSSet<YDKeyword *> *keywords;
 @property (nullable, nonatomic, retain) NSSet<YDTag *> *tags;

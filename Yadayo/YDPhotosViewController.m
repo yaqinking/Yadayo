@@ -57,15 +57,18 @@
     }
     [self setupCollectionViewLayout];
     [self observeNotifications];
-    [self setupGestures];
+//    [self setupGestures];
     [[SDImageCache sharedImageCache] setMaxMemoryCost:[self deviceMaxMemoryCost]];
-#warning 判断当前设备是 iPad 还是 iPhone 来添加 done 按钮返回到 spitViewController 里。
+    if (iPad && !self.isTagListMode) {
+        [self setupNavigationItems];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     self.enterBrowser = NO;
     self.navigationController.hidesBarsOnSwipe = YES;
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 }
 
 - (NSInteger)deviceMaxMemoryCost {
@@ -81,6 +84,10 @@
                                     atScrollPosition:UICollectionViewScrollPositionTop
                                             animated:NO];
     }
+}
+
+- (void)setupNavigationItems {
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", nil) style:UIBarButtonItemStyleDone target:self action:@selector(done:)];
 }
 
 - (void)setupCollectionViewLayout {
@@ -536,6 +543,7 @@
     }];
     YDTagsViewController *tagsVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YDDanbooruSites"];
     tagsVC.site = site;
+    tagsVC.tagListMode = YES;
     [self.navigationController pushViewController:tagsVC animated:YES];
 }
 
@@ -557,13 +565,6 @@
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
-
-#pragma mark - UIView
-
-- (BOOL)prefersStatusBarHidden {
-    return YES;
-}
-
 
 #pragma mark - Lazy Initialization
 
@@ -593,6 +594,5 @@
 - (IBAction)done:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
 
 @end

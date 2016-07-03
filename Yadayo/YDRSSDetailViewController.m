@@ -8,6 +8,7 @@
 
 #import "YDRSSDetailViewController.h"
 #import "YDFeedItem.h"
+#import "YDSite.h"
 #import "MWPhotoBrowser.h"
 #import "Ono.h"
 #import "SDWebImagePrefetcher.h"
@@ -15,11 +16,9 @@
 @import WebKit;
 @import SafariServices;
 
-@interface YDRSSDetailViewController ()<MWPhotoBrowserDelegate>
+@interface YDRSSDetailViewController ()
 
 @property (strong, nonatomic) IBOutlet WKWebView *webView;
-@property (strong, nonatomic) NSMutableArray *photos;
-@property (strong, nonatomic) NSMutableArray<NSURL *> *prefetchURLs;
 
 @end
 
@@ -27,7 +26,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setupNavbarItems];
     self.title = self.item.title;
     NSString *htmlString = self.item.content.length > 0 ? self.item.content : self.item.summary;
@@ -64,66 +62,34 @@
 }
 
 - (void)viewInGallery {
-    NSLog(@"Content %@",self.item.content);
-    [self setupPhotos];
-    if (self.photos.count > 0) {
-        MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithPhotos:self.photos];
-        browser.delegate = self;
+    [YDRSSDetailViewController navigationController:self.navigationController pushGalleryWithItem:self.item prefetch:YES];
+}
+
++ (void)navigationController:(UINavigationController *)navCon pushGalleryWithItem:(YDFeedItem *)item prefetch:(BOOL )prefetch {
+    NSString *htmlString = item.content.length > 0 ? item.content : item.summary;
+    NSMutableArray *photos = [NSMutableArray new];
+    NSMutableArray *prefetchURLs = [NSMutableArray new];
+    ONOXMLDocument *doc = [ONOXMLDocument HTMLDocumentWithString:htmlString encoding:NSUTF8StringEncoding error:nil];
+    [doc enumerateElementsWithXPath:@"//img/@src" usingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *stop) {
+        if ([[element stringValue] containsString:@"http://ad"]) return ;
+        NSURL *url = [NSURL URLWithString:[element stringValue]];
+        MWPhoto *photo = [MWPhoto photoWithURL:url];
+        [photos addObject:photo];
+        [prefetchURLs addObject:url];
+    }];
+    
+    if (photos.count > 0) {
+        MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithPhotos:photos];
         browser.enableGrid = NO;
         browser.displayNavArrows = YES;
         browser.zoomPhotosToFill = YES;
         browser.enableSwipeToDismiss = YES;
-        [self.navigationController pushViewController:browser animated:YES];
-        self.navigationController.hidesBarsOnSwipe = NO;
-        [self prefetchImages];
+        navCon.hidesBarsOnSwipe = YES;
+        [navCon pushViewController:browser animated:YES];
+        SDWebImagePrefetcher *fetcher = [SDWebImagePrefetcher sharedImagePrefetcher];
+        fetcher.maxConcurrentDownloads = 5;
+        [fetcher prefetchURLs:prefetchURLs];
     }
-}
-
-- (void)setupPhotos {
-    NSString *htmlString = self.item.content.length > 0 ? self.item.content : self.item.summary;
-    if (self.photos.count == 0) {
-        ONOXMLDocument *doc = [ONOXMLDocument HTMLDocumentWithString:htmlString encoding:NSUTF8StringEncoding error:nil];
-        [doc enumerateElementsWithXPath:@"//img/@src" usingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *stop) {
-            if ([[element stringValue] containsString:@"http://ad"]) return ;
-            NSURL *url = [NSURL URLWithString:[element stringValue]];
-            MWPhoto *photo = [MWPhoto photoWithURL:url];
-            [self.photos addObject:photo];
-            [self.prefetchURLs addObject:url];
-        }];
-    }
-}
-
-- (void)prefetchImages {
-    SDWebImagePrefetcher *fetcher = [SDWebImagePrefetcher sharedImagePrefetcher];
-    fetcher.maxConcurrentDownloads = 5;
-    [fetcher prefetchURLs:self.prefetchURLs];
-}
-
-#pragma mark - MWPhotoBrowserDelegate
-
-- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
-    return self.photos.count;
-}
-
-- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
-    if (index < self.photos.count){
-        return [self.photos objectAtIndex:index];
-    }
-    return nil;
-}
-
-- (NSMutableArray *)photos {
-    if (!_photos) {
-        _photos = [NSMutableArray new];
-    }
-    return _photos;
-}
-
-- (NSMutableArray<NSURL *> *)prefetchURLs {
-    if (!_prefetchURLs) {
-        _prefetchURLs = [NSMutableArray new];
-    }
-    return _prefetchURLs;
 }
 
 - (void)scrollScreenDistance:(UITapGestureRecognizer *)recongizer {

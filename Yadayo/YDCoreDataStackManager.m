@@ -377,4 +377,18 @@ NSString *const ApplicationCacheDirectoryName = @"yadayo-cache.sqlite";
     return [self.managedObjectContext executeFetchRequest:request error:nil];
 }
 
+- (YDSite *)siteForName:(NSString *)name {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:YDSiteEntityName];
+    request.predicate = [NSPredicate predicateWithFormat:@"name == %@", name];
+    return [[self.managedObjectContext executeFetchRequest:request error:nil] firstObject];
+}
+
+#pragma mark - All Sites
+
+- (NSArray<YDSite *> *)allSites {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:YDSiteEntityName];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:kCreateDate ascending:YES]];
+    return [self.managedObjectContext executeFetchRequest:request error:nil];
+}
+
 @end

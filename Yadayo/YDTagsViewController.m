@@ -22,20 +22,58 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    UIBarButtonItem *addTagItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                                                target:self
-                                                                                action:@selector(addTag)];
-    self.navigationItem.rightBarButtonItem = addTagItem;
-    self.title = self.site.name;
     
+    self.title = self.site.name;
+    if (self.isTagListMode) {
+        [self setupTagListModeNavgationItems];
+    } else {
+        [self setupGeneralNavagationItems];
+    }
+    NSLog(@"viewDidLoad %i",self.site.tags.count);
 //    [self setupTableView];
+}
+
+- (void)setupTagListModeNavgationItems {
+    self.tableView.allowsMultipleSelection = YES;
+    self.tableView.allowsMultipleSelectionDuringEditing = YES;
+    self.navigationItem.rightBarButtonItems = @[self.editButtonItem];
+}
+
+- (void)setupGeneralNavagationItems {
+    UIBarButtonItem *addTagItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target:self action:@selector(addTag)];
+    self.navigationItem.rightBarButtonItem = addTagItem;
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    if (editing) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addSelectTags)];
+    } else {
+        self.navigationItem.leftBarButtonItem = nil;
+    }
+}
+
+- (void)addSelectTags {
+    NSLog(@"Add Select tags");
+    __block YDSite *site = [[YDCoreDataStackManager sharedManager] siteForName:self.site.name];
+    NSArray<NSIndexPath *> *selectIndexPaths = self.tableView.indexPathsForSelectedRows;
+    [selectIndexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull indexPath, NSUInteger idx, BOOL * _Nonnull stop) {
+        YDTag *selectTag = [self tagForRowAtIndexPath:indexPath];
+        YDTag *newTag = [NSEntityDescription insertNewObjectForEntityForName:YDTagEntityName inManagedObjectContext:self.managedObjectContext];
+        newTag.name = selectTag.name;
+        newTag.createDate = [NSDate new];
+        newTag.site = site;
+    }];
+    [[YDCoreDataStackManager sharedManager] saveContext];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController setHidesBarsOnSwipe:NO];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    NSLog(@"viewDidAppear %i",self.site.tags.count);
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,6 +97,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"numberOfRowsInSection %i", self.site.tags.count);
     return self.site.tags.count;
 }
 
@@ -70,6 +109,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView.isEditing) {
+        return;
+    }
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     UINavigationController *navCon = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YDTagDetailNav"];
     YDTag *tag = [self tagForRowAtIndexPath:indexPath];
@@ -77,9 +119,21 @@
     photosVC.tag = tag;
     photosVC.site = self.site;
     if (iPad) {
-        [self.splitViewController presentViewController:navCon animated:YES completion:nil];
+        if (self.isTagListMode) {
+            photosVC.tagListMode = YES;
+            [self.navigationController pushViewController:photosVC animated:YES];
+        } else {
+            [self.splitViewController presentViewController:navCon animated:YES completion:nil];
+        }
     } else if (iPhone) {
         [self.navigationController pushViewController:photosVC animated:YES];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%i", editingStyle);
+    if (editingStyle == UITableViewCellEditingStyleInsert) {
+        NSLog(@"Insert");
     }
 }
 

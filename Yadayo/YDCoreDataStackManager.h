@@ -81,4 +81,9 @@ typedef void(^YDAddSiteFailureBlock)(NSError *error);
 
 - (NSArray<YDSite *> *)savedBTSites;
 
+- (YDSite *)siteForName:(NSString *)name;
+
+// All sites
+- (NSArray<YDSite *> *)allSites;
+
 @end

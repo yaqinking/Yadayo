@@ -32,6 +32,7 @@ static NSString * const YDKeywordCellIdentifier  = @"KeywordCell";
 static NSString * const YDTorrentCellIdentifier  = @"TorrentCell";
 static NSString * const YDFeedItemCellIdentifier = @"FeedItemCell";
 static NSString * const YDExportCellIdentifier = @"ExportCell";
+static NSString * const YDGalleryModeCellIdentifier = @"GalleryModeCell";
 
 static NSString * const YDShowDanbooruSegueIdentifier      = @"Show Danbooru";
 static NSString * const YDShowPhotosSegueIdentifier        = @"Show Photos";

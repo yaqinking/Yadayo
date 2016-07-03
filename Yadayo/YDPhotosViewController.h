@@ -16,5 +16,6 @@
 
 @property (nonatomic, strong) YDTag *tag;
 @property (nonatomic, strong) YDSite *site;
+@property (nonatomic, getter=isTagListMode) BOOL tagListMode;
 
 @end

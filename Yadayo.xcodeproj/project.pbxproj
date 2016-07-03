@@ -41,6 +41,8 @@
 		F470FBFF1CF7255C00CCBDB3 /* YDPreloadPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F470FBFE1CF7255C00CCBDB3 /* YDPreloadPhotoManager.m */; };
 		F470FC021CF726A700CCBDB3 /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = F470FC011CF726A700CCBDB3 /* Picture.m */; };
 		F470FC061CF727DC00CCBDB3 /* UIImageView+ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F470FC051CF727DC00CCBDB3 /* UIImageView+ProgressView.m */; };
+		F4745DD61D2887FE00B2A051 /* YDSiteGalleryModeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F4745DD51D2887FE00B2A051 /* YDSiteGalleryModeCell.m */; };
+		F4745DD91D2888DF00B2A051 /* YDSettingsGalleryModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4745DD81D2888DF00B2A051 /* YDSettingsGalleryModeViewController.m */; };
 		F479982E1D0069A4003BA8E5 /* YDFeedItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F479982D1D0069A4003BA8E5 /* YDFeedItemTableViewCell.m */; };
 		F49DCE361CFAA498008E29AF /* YDFeedItem+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F49DCE2F1CFAA498008E29AF /* YDFeedItem+CoreDataProperties.m */; };
 		F49DCE371CFAA498008E29AF /* YDFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F49DCE311CFAA498008E29AF /* YDFeedItem.m */; };
@@ -139,6 +141,10 @@
 		F470FC011CF726A700CCBDB3 /* Picture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Picture.m; sourceTree = "<group>"; };
 		F470FC041CF727DC00CCBDB3 /* UIImageView+ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ProgressView.h"; sourceTree = "<group>"; };
 		F470FC051CF727DC00CCBDB3 /* UIImageView+ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ProgressView.m"; sourceTree = "<group>"; };
+		F4745DD41D2887FE00B2A051 /* YDSiteGalleryModeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDSiteGalleryModeCell.h; sourceTree = "<group>"; };
+		F4745DD51D2887FE00B2A051 /* YDSiteGalleryModeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDSiteGalleryModeCell.m; sourceTree = "<group>"; };
+		F4745DD71D2888DF00B2A051 /* YDSettingsGalleryModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDSettingsGalleryModeViewController.h; sourceTree = "<group>"; };
+		F4745DD81D2888DF00B2A051 /* YDSettingsGalleryModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDSettingsGalleryModeViewController.m; sourceTree = "<group>"; };
 		F479982C1D0069A4003BA8E5 /* YDFeedItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YDFeedItemTableViewCell.h; path = View/YDFeedItemTableViewCell.h; sourceTree = "<group>"; };
 		F479982D1D0069A4003BA8E5 /* YDFeedItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YDFeedItemTableViewCell.m; path = View/YDFeedItemTableViewCell.m; sourceTree = "<group>"; };
 		F49DCE2E1CFAA498008E29AF /* YDFeedItem+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "YDFeedItem+CoreDataProperties.h"; path = "Model/YDFeedItem+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -252,6 +258,8 @@
 				F45312B41CFD39A40085342A /* YDUtil.h */,
 				F45312B51CFD39A50085342A /* YDUtil.m */,
 				F4D7A55B1CF86DC2009DCF81 /* ProjectYadayo.md */,
+				F4745DD71D2888DF00B2A051 /* YDSettingsGalleryModeViewController.h */,
+				F4745DD81D2888DF00B2A051 /* YDSettingsGalleryModeViewController.m */,
 			);
 			path = Yadayo;
 			sourceTree = "<group>";
@@ -322,6 +330,8 @@
 				F455755A1CFB11F600E37799 /* YDTorrentTableViewCell.m */,
 				F479982C1D0069A4003BA8E5 /* YDFeedItemTableViewCell.h */,
 				F479982D1D0069A4003BA8E5 /* YDFeedItemTableViewCell.m */,
+				F4745DD41D2887FE00B2A051 /* YDSiteGalleryModeCell.h */,
+				F4745DD51D2887FE00B2A051 /* YDSiteGalleryModeCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -614,6 +624,7 @@
 				F479982E1D0069A4003BA8E5 /* YDFeedItemTableViewCell.m in Sources */,
 				F445B9CB1CF689B400C36A9B /* YDImage.m in Sources */,
 				F445B99E1CF67FC500C36A9B /* Yadayo.xcdatamodeld in Sources */,
+				F4745DD91D2888DF00B2A051 /* YDSettingsGalleryModeViewController.m in Sources */,
 				F49DCE361CFAA498008E29AF /* YDFeedItem+CoreDataProperties.m in Sources */,
 				F4D437CF1CFC5B7B001EE33A /* YDEPReminderSettingViewController.m in Sources */,
 				F470FC021CF726A700CCBDB3 /* Picture.m in Sources */,
@@ -624,6 +635,7 @@
 				F445B9DF1CF6970E00C36A9B /* YDTagsViewController.m in Sources */,
 				F470FC061CF727DC00CCBDB3 /* UIImageView+ProgressView.m in Sources */,
 				F4D7A5521CF853B1009DCF81 /* YDExportViewController.m in Sources */,
+				F4745DD61D2887FE00B2A051 /* YDSiteGalleryModeCell.m in Sources */,
 				F445B9C91CF689B400C36A9B /* YDSite.m in Sources */,
 				F445B9DC1CF696DC00C36A9B /* YDSettingsViewController.m in Sources */,
 				F455755B1CFB11F600E37799 /* YDTorrentTableViewCell.m in Sources */,

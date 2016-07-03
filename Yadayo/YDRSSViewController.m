@@ -107,6 +107,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (self.site.galleryMode.boolValue) {
+        [YDRSSDetailViewController navigationController:self.navigationController pushGalleryWithItem:[self.items objectAtIndex:indexPath.row] prefetch:YES];
+    }
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    return self.site.galleryMode.boolValue ? NO : YES;
 }
 
 - (YDCoreDataStackManager *)dataManager {

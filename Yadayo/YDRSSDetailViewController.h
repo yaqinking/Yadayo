@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class YDFeedItem;
+@class YDSite;
 
 @interface YDRSSDetailViewController : UIViewController
 
 @property (nonatomic, strong) YDFeedItem *item;
+
++ (void)navigationController:(UINavigationController *)navCon pushGalleryWithItem:(YDFeedItem *)item prefetch:(BOOL )prefetch;
 
 @end
