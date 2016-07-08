@@ -12,6 +12,7 @@ target 'Yadayo' do
   pod 'MWFeedParser'
   pod 'Ono'
   pod 'DateTools'
+  pod 'Parse'
   
   target 'YadayoTests' do
     inherit! :search_paths

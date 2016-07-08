@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "YDCoreDataStackManager.h"
 #import "MWFeedParser.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -26,6 +27,7 @@
     if (application.applicationState != UIApplicationStateBackground) {
         [self configureSettings];
     }
+    [self congigureParse];
     return YES;
 }
 
@@ -151,6 +153,14 @@
     
 }
 
+- (void)congigureParse {
+    [Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration>  _Nonnull configuration) {
+        configuration.applicationId = YDParseAppId;
+        configuration.server = YDParseServer;
+    }]];
+}
+
+
 #pragma mark - Notification
 
 - (void) registeLocalNotification {
@@ -161,6 +171,50 @@
     [UIUserNotificationSettings settingsForTypes:types categories:nil];
     
     [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
+}
+
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    if (notificationSettings.types != UIUserNotificationTypeNone) {
+        [application registerForRemoteNotifications];
+    }
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    const char *data = [deviceToken bytes];
+    NSMutableString *token = [NSMutableString string];
+    for (NSUInteger i = 0; i < [deviceToken length]; i++) {
+        [token appendFormat:@"%02.2hhX", data[i]];
+    }
+    NSLog(@"Token %@", token);
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"Success upload device token to parse server %@", [currentInstallation deviceToken]);
+        } else {
+            NSLog(@"Save device tokent error %@", [error localizedDescription]);
+        }
+    }];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"Registe remote notifications error %@", [error localizedDescription]);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    NSInteger contentAvailable = [[userInfo valueForKeyPath:@"aps.content-available"] integerValue];
+    if (contentAvailable == 1) {
+        NSString *siteName = [[NSUserDefaults standardUserDefaults] stringForKey:kReminderSiteName];
+        if (siteName) {
+            NSLog(@"Remote Notification Wake Fetch %@", siteName);
+            [self fetchNewFeedItemFrom:siteName completionHandler:completionHandler];
+        } else {
+            completionHandler(UIBackgroundFetchResultFailed);
+        }
+    } else {
+        NSLog(@"PFPush handle push %@", userInfo);
+        [PFPush handlePush:userInfo];
+    }
 }
 
 - (YDCoreDataStackManager *)dataManager {

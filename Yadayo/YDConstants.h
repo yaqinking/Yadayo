@@ -42,6 +42,9 @@ static NSString * const YDShowItemDetailSegueIdentifier    = @"Show Item Detail"
 
 static NSString * const YDTagAll = @"";
 
+static NSString * const YDParseAppId = @"Yadayo";
+static NSString * const YDParseServer = @"http://192.168.1.110:1337/parse";
+
 @interface YDConstants : NSObject
 @end
 
