@@ -14,7 +14,7 @@
 "Cjl-4V-ZZa.text" = "高级设置";
 
 /* Class = "UILabel"; text = "Preload next page image"; ObjectID = "Gzr-5q-6Ow"; */
-"Gzr-5q-6Ow.text" = "预加载下一页图片";
+"Gzr-5q-6Ow.text" = "预加载图片";
 
 /* Class = "UIBarButtonItem"; title = "Export"; ObjectID = "I5S-Zk-oVW"; */
 "I5S-Zk-oVW.title" = "导出";
@@ -56,7 +56,7 @@
 "YbA-cV-tUJ.text" = "改变缩略图类型";
 
 /* Class = "UILabel"; text = "Set reminder site"; ObjectID = "Zai-o9-RGJ"; */
-"Zai-o9-RGJ.text" = "设置提醒站点";
+"Zai-o9-RGJ.text" = "通知";
 
 /* Class = "UITableViewSection"; headerTitle = "General"; ObjectID = "a53-fq-fY9"; */
 "a53-fq-fY9.headerTitle" = "通常";
@@ -83,7 +83,7 @@
 "mdX-z0-uQM.text" = "Acknowledgements";
 
 /* Class = "UINavigationItem"; title = "Export Options"; ObjectID = "oss-YV-R8b"; */
-"oss-YV-R8b.title" = "到处设置";
+"oss-YV-R8b.title" = "导出设置";
 
 /* Class = "UILabel"; text = "About"; ObjectID = "pVp-KA-2Z4"; */
 "pVp-KA-2Z4.text" = "关于";

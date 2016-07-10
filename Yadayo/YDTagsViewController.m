@@ -71,9 +71,9 @@
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController setHidesBarsOnSwipe:NO];
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     NSLog(@"viewDidAppear %i",self.site.tags.count);
     [self.tableView reloadData];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -123,7 +123,8 @@
             photosVC.tagListMode = YES;
             [self.navigationController pushViewController:photosVC animated:YES];
         } else {
-            [self.splitViewController presentViewController:navCon animated:YES completion:nil];
+//            [self.splitViewController presentViewController:navCon animated:YES completion:nil];
+            [self.navigationController pushViewController:photosVC animated:YES];
         }
     } else if (iPhone) {
         [self.navigationController pushViewController:photosVC animated:YES];
@@ -134,6 +135,9 @@
     NSLog(@"%i", editingStyle);
     if (editingStyle == UITableViewCellEditingStyleInsert) {
         NSLog(@"Insert");
+    }
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSLog(@"Delete");
     }
 }
 

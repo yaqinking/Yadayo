@@ -195,8 +195,11 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToShowNextORPrePic:)];
     [self.view addGestureRecognizer:tapGesture];
     
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Tags" style:UIBarButtonItemStylePlain target:self action:@selector(tagsButtonPressed:)];
+    if (self.displayTagsActionButton){
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Tags" style:UIBarButtonItemStylePlain target:self action:@selector(tagsButtonPressed:)];
+    }
+//    self.navigationController.hidesBarsOnSwipe = NO;
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)performLayout {
@@ -439,7 +442,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 #pragma mark - Nav Bar Appearance
 
 - (void)setNavBarAppearance:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
+//    [self.navigationController setNavigationBarHidden:NO animated:animated];
     UINavigationBar *navBar = self.navigationController.navigationBar;
     navBar.tintColor = [UIColor whiteColor];
     navBar.barTintColor = nil;
@@ -1377,6 +1380,8 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 // If permanent then we don't set timers to hide again
 // Fades all controls on iOS 5 & 6, and iOS 7 controls slide and fade
 - (void)setControlsHidden:(BOOL)hidden animated:(BOOL)animated permanent:(BOOL)permanent {
+    // Statusbars
+    
     
     // Force visible
     if (![self numberOfPhotos] || _gridController || _alwaysShowControls)
@@ -1402,6 +1407,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
             
             // View controller based so animate away
             _statusBarShouldBeHidden = hidden;
+//            _statusBarShouldBeHidden = YES;
             [UIView animateWithDuration:animationDuration animations:^(void) {
                 [self setNeedsStatusBarAppearanceUpdate];
             } completion:^(BOOL finished) {}];
@@ -1427,6 +1433,8 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
                 v.frame = CGRectOffset(captionFrame, 0, animatonOffset);
             }
         }
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+        [self.navigationController setNavigationBarHidden:NO animated:NO];
         
     }
     [UIView animateWithDuration:animationDuration animations:^(void) {
@@ -1474,11 +1482,11 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 }
 
 - (BOOL)prefersStatusBarHidden {
-    //    if (!_leaveStatusBarAlone) {
-    //        return _statusBarShouldBeHidden;
-    //    } else {
-    //        return [self presentingViewControllerPrefersStatusBarHidden];
-    //    }
+        if (!_leaveStatusBarAlone) {
+            return _statusBarShouldBeHidden;
+        } else {
+            return [self presentingViewControllerPrefersStatusBarHidden];
+        }
     return YES;
 }
 

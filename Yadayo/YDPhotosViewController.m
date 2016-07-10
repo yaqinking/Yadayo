@@ -38,6 +38,8 @@
 @property (nonatomic, assign) CGSize screenSize;
 
 @property (nonatomic, strong) NSString *downloadImageTypeKey;
+@property (nonatomic, assign) CGSize itemSize;
+
 @end
 
 @implementation YDPhotosViewController
@@ -60,7 +62,7 @@
 //    [self setupGestures];
     [[SDImageCache sharedImageCache] setMaxMemoryCost:[self deviceMaxMemoryCost]];
     if (iPad && !self.isTagListMode) {
-        [self setupNavigationItems];
+//        [self setupNavigationItems];
     }
 }
 
@@ -105,6 +107,7 @@
     [super viewWillAppear:animated];
     if (!self.isEnterBrowser) {
         self.screenSize = self.view.bounds.size;
+        [self recalculateCollectionViewItemSize];
     }
     [self.collectionView.collectionViewLayout invalidateLayout];
 }
@@ -156,6 +159,7 @@
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     self.screenSize = size;
+    [self recalculateCollectionViewItemSize];
     [self.collectionView.collectionViewLayout invalidateLayout];
     
 }
@@ -163,10 +167,18 @@
 #pragma mark - UICollectionViewFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [self calculateCollectionViewItemSize];
+    if (self.itemSize.width == 0) {
+        self.itemSize = [self calculateCollectionViewItemSize];
+    }
+    return self.itemSize;
+}
+
+- (void)recalculateCollectionViewItemSize {
+    self.itemSize = [self calculateCollectionViewItemSize];
 }
 
 - (CGSize )calculateCollectionViewItemSize {
+    NSLog(@"Calc");
     self.screenWidth = self.screenSize.width;
     self.screenHeight = self.screenSize.height;
     int splitScreenWidth = (int)self.screenSize.width;
@@ -312,7 +324,8 @@
     self.browser.displayNavArrows = YES;
     self.browser.zoomPhotosToFill = YES;
     self.browser.enableSwipeToDismiss = YES;
-    //    self.browser.automaticallyAdjustsScrollViewInsets = YES;
+    self.browser.displayTagsActionButton = YES;
+
     [self.navigationController pushViewController:self.browser animated:YES];
 }
 
@@ -593,6 +606,11 @@
 
 - (IBAction)done:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)dealloc {
+    NSLog(@"%@ dealloc",[self class]);
+    [[YDPreloadPhotoManager manager] cancelPreloading];
 }
 
 @end

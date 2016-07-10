@@ -8,12 +8,11 @@
 
 #import "YDEPReminderSettingViewController.h"
 #import "YDCoreDataStackManager.h"
+#import "YDTableViewSwitchCell.h"
 
 @interface YDEPReminderSettingViewController ()
 
-@property (nonatomic, strong) NSArray<YDSite *> *btSites;
-@property (nonatomic, strong) NSString *reminderSiteName;
-@property (nonatomic, copy) NSIndexPath *reminderIndexPath;
+@property (nonatomic, strong) NSArray<YDSite *> *sites;
 
 @end
 
@@ -21,44 +20,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.reminderSiteName = [[NSUserDefaults standardUserDefaults] stringForKey:kReminderSiteName];
-    self.btSites = [[YDCoreDataStackManager sharedManager] savedBTSites];
+    self.sites = [[YDCoreDataStackManager sharedManager] allSites];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.btSites.count;
+    return self.sites.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:YDSiteCellIdentifier forIndexPath:indexPath];
-    YDSite *site = self.btSites[indexPath.row];
-    cell.textLabel.text = site.name;
-    if (self.reminderSiteName && [site.name isEqualToString:self.reminderSiteName]) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        self.reminderIndexPath = indexPath;
-    }
+    YDTableViewSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:YDSiteCellIdentifier forIndexPath:indexPath];
+    YDSite *site = self.sites[indexPath.row];
+    cell.siteNameLabel.text = site.name;
+    [cell.siteSwitch setOn:site.notification.boolValue animated:YES];
+    [cell.siteSwitch addTarget:self action:@selector(changeNotifications:) forControlEvents:UIControlEventValueChanged];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.reminderIndexPath) {
-        UITableViewCell *reminderCell = [self.tableView cellForRowAtIndexPath:self.reminderIndexPath];
-        reminderCell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    if (cell.accessoryType == UITableViewCellAccessoryNone) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        self.reminderIndexPath = indexPath;
-        NSString *reminderSiteName = [[self.btSites objectAtIndex:indexPath.row] name];
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:reminderSiteName forKey:kReminderSiteName];
-        [defaults synchronize];
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)changeNotifications:(UISwitch *)sender {
+    BOOL state = sender.on;
+    NSIndexPath *indexPath = [self indexPathForView:sender];
+    YDSite *site = self.sites[indexPath.row];
+    site.notification = [NSNumber numberWithBool:state];
+    [[YDCoreDataStackManager sharedManager] saveContext];
+}
+
+- (NSIndexPath *)indexPathForView:(UIView *)view {
+    CGPoint hitPoint = [view convertPoint:CGPointZero toView:self.tableView];
+    return [self.tableView indexPathForRowAtPoint:hitPoint];
 }
 
 @end

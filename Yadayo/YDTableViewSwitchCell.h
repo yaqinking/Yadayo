@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YDSiteGalleryModeCell : UITableViewCell
+@interface YDTableViewSwitchCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UILabel *siteNameLabel;
-@property (strong, nonatomic) IBOutlet UISwitch *galleyModeSwitch;
+@property (weak, nonatomic) IBOutlet UILabel *siteNameLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *siteSwitch;
 
 @end

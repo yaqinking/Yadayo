@@ -10,8 +10,8 @@
 
 @interface YDFeedItemTableViewCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) IBOutlet UILabel *pubDateLabel;
-@property (strong, nonatomic) IBOutlet UILabel *authorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pubDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 
 @end

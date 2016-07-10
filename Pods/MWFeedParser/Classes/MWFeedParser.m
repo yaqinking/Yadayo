@@ -325,7 +325,9 @@
         parsing = NO;
         parsingComplete = YES;
         if (_completionBlock) {
-            _completionBlock();
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _completionBlock();
+            });
         }
         // Reset
         [self reset];
@@ -362,7 +364,9 @@
         [self reset];
         // Inform block
         if (_failureBlock) {
-            _failureBlock(error);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _failureBlock(error);
+            });
         }
     }
     
@@ -748,7 +752,9 @@
 - (void)dispatchFeedInfoToBlock {
     if (info) {
         if (_parsedItemBlock) {
-            _parsedItemBlock(self, self.info, nil);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _parsedItemBlock(self, self.info, nil);
+            });
         }
         // Debug log
         MWLog(@"MWFeedParser: Feed info for \"%@\" successfully parsed", info.title);
@@ -768,7 +774,9 @@
         // Debug log
         MWLog(@"MWFeedParser: Feed item \"%@\" successfully parsed", item.title);
         if (_parsedItemBlock) {
-            _parsedItemBlock(self, nil, item);
+            dispatch_async(dispatch_get_main_queue(),^{
+                _parsedItemBlock(self, nil, item);
+            });
         }
         // Finish
         self.item = nil;

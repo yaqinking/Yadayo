@@ -391,4 +391,12 @@ NSString *const ApplicationCacheDirectoryName = @"yadayo-cache.sqlite";
     return [self.managedObjectContext executeFetchRequest:request error:nil];
 }
 
+#pragma mark - Notification sites
+
+- (NSArray<YDSite *> *)notificationSites {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:YDSiteEntityName];
+    request.predicate = [NSPredicate predicateWithFormat:@"notification == %@", @YES];
+    return [self.managedObjectContext executeFetchRequest:request error:nil];
+}
+
 @end

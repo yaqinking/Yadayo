@@ -18,5 +18,6 @@ extern NSString * const PreloadPhotoPrograssCompletedKey;
 + (YDPreloadPhotoManager *)manager;
 
 - (void)GET:(NSString *)url;
+- (void)cancelPreloading;
 
 @end

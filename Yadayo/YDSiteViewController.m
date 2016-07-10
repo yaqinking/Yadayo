@@ -115,8 +115,7 @@
     YDRSSNavigationController *navCon = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YDRSSNav"];
     YDRSSViewController *rssVC = navCon.childViewControllers[0];
     rssVC.site = site;
-    
-    [self.splitViewController showDetailViewController:navCon sender:nil];
+    [self.navigationController pushViewController:rssVC animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

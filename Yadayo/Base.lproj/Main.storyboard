@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rle-a1-bpb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bsf-JN-WME">
     <dependencies>
         <development version="7000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -146,7 +146,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l9K-7y-uUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1483" y="-2406"/>
+            <point key="canvasLocation" x="-1483" y="-2412"/>
         </scene>
         <!--Tags View Controller-->
         <scene sceneID="saw-t5-ii1">
@@ -174,7 +174,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ebT-Ri-r1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="331" y="-2848"/>
+            <point key="canvasLocation" x="1143" y="-2848"/>
         </scene>
         <!--Keywords View Controller-->
         <scene sceneID="7LX-Er-A9e">
@@ -209,7 +209,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bnT-bF-l75" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1018" y="-1911"/>
+            <point key="canvasLocation" x="1830" y="-1911"/>
         </scene>
         <!--Add Keyword View Controller-->
         <scene sceneID="8jK-fS-2XC">
@@ -269,7 +269,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8k5-Li-W4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1935" y="-2115"/>
+            <point key="canvasLocation" x="2747" y="-2115"/>
         </scene>
         <!--Keyword Detail View Controller-->
         <scene sceneID="gMz-fO-xPf">
@@ -330,24 +330,6 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
             </objects>
             <point key="canvasLocation" x="2754" y="-1418"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Omy-DG-vrX">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gJK-kU-S2C" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9GM-IW-p6a">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="yDg-E1-qjT" kind="relationship" relationship="rootViewController" id="5nQ-le-qrE"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zlc-A2-rTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2367" y="-2398"/>
-        </scene>
         <!--Photos View Controller-->
         <scene sceneID="qzU-go-IRK">
             <objects>
@@ -394,19 +376,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mX9-s3-wQS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1935" y="-2838"/>
-        </scene>
-        <!--Split View Controller-->
-        <scene sceneID="JbH-gB-tBN">
-            <objects>
-                <splitViewController id="rle-a1-bpb" sceneMemberID="viewController">
-                    <connections>
-                        <segue destination="gJK-kU-S2C" kind="relationship" relationship="masterViewController" id="XAw-df-J6m"/>
-                    </connections>
-                </splitViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1v0-Li-KRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3191" y="-2411"/>
+            <point key="canvasLocation" x="2747" y="-2838"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="uX7-IT-VIl">
@@ -715,8 +685,8 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preload next page image" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzr-5q-6Ow">
-                                                    <rect key="frame" x="16" y="11" width="189" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preload images" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzr-5q-6Ow">
+                                                    <rect key="frame" x="16" y="11" width="118" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -772,16 +742,16 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="BT" id="xzP-cS-8AJ">
+                            <tableViewSection id="xzP-cS-8AJ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="j20-oc-iIN">
-                                        <rect key="frame" x="0.0" y="580" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="565" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j20-oc-iIN" id="h36-B2-g50">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set reminder site" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zai-o9-RGJ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Notifications" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zai-o9-RGJ">
                                                     <rect key="frame" x="16" y="11" width="130" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -800,12 +770,8 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                                             <segue destination="fbV-8E-3dB" kind="show" id="Nv9-fV-lT3"/>
                                         </connections>
                                     </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="SITE" id="vR7-aE-wKB">
-                                <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="kcX-vp-Zcx">
-                                        <rect key="frame" x="0.0" y="675" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="609" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kcX-vp-Zcx" id="UBU-pF-Agm">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
@@ -861,35 +827,33 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GalleryModeCell" id="YHj-eS-pM7" customClass="YDSiteGalleryModeCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GalleryModeCell" id="YHj-eS-pM7" customClass="YDTableViewSwitchCell">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YHj-eS-pM7" id="y3R-bG-M4V">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="J0C-Dq-L7q">
-                                            <rect key="frame" x="531" y="8" width="51" height="31"/>
-                                        </switch>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVy-C1-Bg3">
-                                            <rect key="frame" x="16" y="8" width="507" height="31"/>
+                                            <rect key="frame" x="16" y="11" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="J0C-Dq-L7q">
+                                            <rect key="frame" x="535" y="6" width="51" height="31"/>
+                                        </switch>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="J0C-Dq-L7q" firstAttribute="leading" secondItem="tVy-C1-Bg3" secondAttribute="trailing" constant="8" symbolic="YES" id="0vM-nR-phg"/>
-                                        <constraint firstItem="tVy-C1-Bg3" firstAttribute="leading" secondItem="y3R-bG-M4V" secondAttribute="leadingMargin" constant="8" id="TMu-92-7fQ"/>
-                                        <constraint firstItem="tVy-C1-Bg3" firstAttribute="bottom" secondItem="J0C-Dq-L7q" secondAttribute="bottom" id="XJ0-oa-PrW"/>
-                                        <constraint firstItem="tVy-C1-Bg3" firstAttribute="top" secondItem="y3R-bG-M4V" secondAttribute="topMargin" id="bjj-Ys-IgC"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="J0C-Dq-L7q" secondAttribute="trailing" constant="12" id="c2C-r2-jjK"/>
-                                        <constraint firstItem="J0C-Dq-L7q" firstAttribute="top" secondItem="y3R-bG-M4V" secondAttribute="topMargin" id="zmv-ai-IvZ"/>
+                                        <constraint firstItem="tVy-C1-Bg3" firstAttribute="centerY" secondItem="y3R-bG-M4V" secondAttribute="centerY" id="5jK-ax-sSl"/>
+                                        <constraint firstItem="J0C-Dq-L7q" firstAttribute="centerY" secondItem="y3R-bG-M4V" secondAttribute="centerY" id="L7V-HE-dZg"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="J0C-Dq-L7q" secondAttribute="trailing" constant="8" id="X3d-xk-7TK"/>
+                                        <constraint firstItem="tVy-C1-Bg3" firstAttribute="leading" secondItem="y3R-bG-M4V" secondAttribute="leadingMargin" constant="8" id="iII-Bu-D4h"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="galleyModeSwitch" destination="J0C-Dq-L7q" id="wM7-J1-ccz"/>
                                     <outlet property="siteNameLabel" destination="tVy-C1-Bg3" id="r1U-fF-PiF"/>
+                                    <outlet property="siteSwitch" destination="J0C-Dq-L7q" id="OtI-We-HUO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -912,13 +876,34 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SiteCell" id="kg0-OW-TY4">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SiteCell" id="kg0-OW-TY4" customClass="YDTableViewSwitchCell">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kg0-OW-TY4" id="FaN-Rh-FNJ">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLu-Tz-wSf">
+                                            <rect key="frame" x="16" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TYg-lW-3Tb">
+                                            <rect key="frame" x="535" y="6" width="51" height="31"/>
+                                        </switch>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="DLu-Tz-wSf" firstAttribute="leading" secondItem="FaN-Rh-FNJ" secondAttribute="leadingMargin" constant="8" id="3bQ-sr-68k"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="TYg-lW-3Tb" secondAttribute="trailing" constant="8" id="L5j-RT-95z"/>
+                                        <constraint firstItem="DLu-Tz-wSf" firstAttribute="centerY" secondItem="FaN-Rh-FNJ" secondAttribute="centerY" id="TTQ-HZ-4OY"/>
+                                        <constraint firstItem="TYg-lW-3Tb" firstAttribute="centerY" secondItem="FaN-Rh-FNJ" secondAttribute="centerY" id="vyL-MO-1m0"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="siteNameLabel" destination="DLu-Tz-wSf" id="4ic-f4-N4I"/>
+                                    <outlet property="siteSwitch" destination="TYg-lW-3Tb" id="mR9-7s-976"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -929,7 +914,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QOj-tw-dew" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-745" y="-606"/>
+            <point key="canvasLocation" x="-685" y="-430"/>
         </scene>
         <!--Export Options-->
         <scene sceneID="LDq-j6-VeR">
@@ -1060,7 +1045,7 @@ https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CaD-iK-3n1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="342" y="-1911"/>
+            <point key="canvasLocation" x="1154" y="-1911"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="SdQ-ku-XNi">
@@ -1202,7 +1187,25 @@ https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OjW-6g-cNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1083" y="-2838"/>
+            <point key="canvasLocation" x="1895" y="-2838"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sEs-8g-VeK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bsf-JN-WME" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BZ2-gC-0nV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yDg-E1-qjT" kind="relationship" relationship="rootViewController" id="dn0-wJ-2fA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iii-hy-PZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2195" y="-2412"/>
         </scene>
     </scenes>
     <resources>

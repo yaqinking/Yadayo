@@ -20,6 +20,7 @@ NSString * const PreloadPhotoPrograssCompletedKey          = @"completed";
 
 @property (nonatomic, strong) NSMutableArray *preferchURLS;
 @property (nonatomic, strong) NSString *downloadImageTypeKey;
+@property (nonatomic, strong) SDWebImagePrefetcher *fetcher;
 
 @end
 
@@ -43,8 +44,8 @@ NSString * const PreloadPhotoPrograssCompletedKey          = @"completed";
 }
 
 - (void)GET:(NSString *)url {
-    SDWebImagePrefetcher *fecher = [SDWebImagePrefetcher sharedImagePrefetcher];
-    fecher.maxConcurrentDownloads = 5;
+    self.fetcher = [SDWebImagePrefetcher sharedImagePrefetcher];
+    self.fetcher.maxConcurrentDownloads = 5;
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:url
       parameters:nil
@@ -67,7 +68,7 @@ NSString * const PreloadPhotoPrograssCompletedKey          = @"completed";
                              break;
                      }
                  }
-                 [fecher prefetchURLs:self.preferchURLS progress:^(NSUInteger noOfFinishedUrls, NSUInteger noOfTotalUrls) {
+                 [self.fetcher prefetchURLs:self.preferchURLS progress:^(NSUInteger noOfFinishedUrls, NSUInteger noOfTotalUrls) {
                      NSNumber *finised = [NSNumber numberWithUnsignedInteger:noOfFinishedUrls];
                      NSNumber *total = [NSNumber numberWithUnsignedInteger:noOfTotalUrls];
                      NSDictionary *userInfo = @{ PreloadPhotoProgressFinishedKey: finised,
@@ -84,6 +85,11 @@ NSString * const PreloadPhotoPrograssCompletedKey          = @"completed";
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              NSLog(@"%@ failure %@",[self class],error);
          }];
+}
+
+- (void)cancelPreloading {
+    [self.fetcher cancelPrefetching];
+    [self.preferchURLS removeAllObjects]; 
 }
 
 // DownloadImageTypeKey 会发生改变的 poi，由于这个是 singleton 但是确实是会发生改变的，在改变 DownloadType 的时候发送一个 Notification 这里接收到之后把 downloadImageTypeKey 设为 nil，让它重新访问 Defaults 取数据。

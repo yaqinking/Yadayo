@@ -86,4 +86,6 @@ typedef void(^YDAddSiteFailureBlock)(NSError *error);
 // All sites
 - (NSArray<YDSite *> *)allSites;
 
+- (NSArray<YDSite *> *)notificationSites;
+
 @end

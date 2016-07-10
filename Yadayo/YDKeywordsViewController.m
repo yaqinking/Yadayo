@@ -64,7 +64,7 @@
     kwdDVC.keyword = keyword;
     kwdDVC.site = self.site;
     kwdDVC.title = keyword.name;
-    [self.splitViewController showDetailViewController:navCon sender:nil];
+    [self.navigationController pushViewController:kwdDVC animated:YES];
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {

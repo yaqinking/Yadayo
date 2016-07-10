@@ -118,6 +118,12 @@ typedef NS_ENUM(NSInteger, KonachanPreviewImageLoadType) {
     KonachanPreviewImageLoadTypeLoadDownloaded
 };
 
+typedef NS_ENUM(NSInteger, YDSiteType){
+    YDSiteTypeDanbooruSite = 1,
+    YDSiteTypeBtSite,
+    YDSiteTypeImgSite
+};
+
 #define SplitViewScreeniPad_Half           507
 #define SplitViewScreeniPad_Slide_Over     320
 #define SplitViewScreeniPad_Landscape2_3   694

@@ -60,7 +60,7 @@
                                                 }
                                                 if (feedItem) {
                                                     if (![self.dataManager existFeedItem:feedItem]) {
-                                                        NSLog(@"Insert %@",feedItem.title);
+                                                        NSLog(@"Insert %@ %@",feedItem.title, [NSThread currentThread]);
                                                         [self.dataManager insertFeedItem:feedItem
                                                                                 siteName:self.site.name
                                                                              siteKeyword:nil];
@@ -72,6 +72,7 @@
                                                 [self fetchSavedData];
                                                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                                                 [self.refreshControl endRefreshing];
+                                                
                                             } failureBlock:^(NSError *error) {
                                                 NSLog(@"Failure");
                                                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -82,7 +83,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.hidesBarsOnSwipe = NO;
-   [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

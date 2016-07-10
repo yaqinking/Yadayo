@@ -6,8 +6,8 @@
 //  Copyright © 2016年 yaqinking. All rights reserved.
 //
 
-#import "YDSiteGalleryModeCell.h"
+#import "YDTableViewSwitchCell.h"
 
-@implementation YDSiteGalleryModeCell
+@implementation YDTableViewSwitchCell
 
 @end

@@ -8,7 +8,7 @@
 
 #import "YDSettingsGalleryModeViewController.h"
 #import "YDCoreDataStackManager.h"
-#import "YDSiteGalleryModeCell.h"
+#import "YDTableViewSwitchCell.h"
 
 @interface YDSettingsGalleryModeViewController()
 
@@ -19,6 +19,7 @@
 @implementation YDSettingsGalleryModeViewController
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     self.allSites = [[YDCoreDataStackManager sharedManager] allSites];
 }
 
@@ -27,11 +28,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    YDSiteGalleryModeCell *cell = [tableView dequeueReusableCellWithIdentifier:YDGalleryModeCellIdentifier forIndexPath:indexPath];
+    YDTableViewSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:YDGalleryModeCellIdentifier forIndexPath:indexPath];
     YDSite *site = self.allSites[indexPath.row];
     cell.siteNameLabel.text = site.name;
-    cell.galleyModeSwitch.on = site.galleryMode.boolValue;
-    [cell.galleyModeSwitch addTarget:self action:@selector(changeGalleryMode:) forControlEvents:UIControlEventValueChanged];
+    cell.siteSwitch.on = site.galleryMode.boolValue;
+    [cell.siteSwitch addTarget:self action:@selector(changeGalleryMode:) forControlEvents:UIControlEventValueChanged];
     return cell;
 }
 

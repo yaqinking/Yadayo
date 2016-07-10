@@ -7,9 +7,9 @@ Project Yadayo（别）
             konachan.com
             konachan.net
             yande.re
-        预订支持
             moeimg.net
             kisssub.org
+            share.dmhy.org
 - Danbooru 图站相关
     YDTagsViewController 管理订阅的 tag
     YDPhotosViewController tag 显示的缩略图（大图界面使用 MWPhotoBrowser）

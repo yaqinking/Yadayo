@@ -24,6 +24,8 @@
 
 @implementation YDRSSDetailViewController
 
+@synthesize webView = webView;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNavbarItems];
@@ -34,7 +36,16 @@
     htmlString = [NSString stringWithFormat:@"%@%@%@",header, htmlString, footer];
     
     self.webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
+    self.webView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.webView];
+    
+    NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(webView);
+    
+    NSArray *constrainsts = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[webView]|" options:0 metrics:nil views:viewsDictionary];
+    [self.view addConstraints:constrainsts];
+    
+    constrainsts = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[webView]|" options:0 metrics:nil views:viewsDictionary];
+    [self.view addConstraints:constrainsts];
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollScreenDistance:)];
     tapGesture.numberOfTouchesRequired = 1;
@@ -65,6 +76,10 @@
     [YDRSSDetailViewController navigationController:self.navigationController pushGalleryWithItem:self.item prefetch:YES];
 }
 
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+//    [self.webView reload];
+}
+
 + (void)navigationController:(UINavigationController *)navCon pushGalleryWithItem:(YDFeedItem *)item prefetch:(BOOL )prefetch {
     NSString *htmlString = item.content.length > 0 ? item.content : item.summary;
     NSMutableArray *photos = [NSMutableArray new];
@@ -84,6 +99,7 @@
         browser.displayNavArrows = YES;
         browser.zoomPhotosToFill = YES;
         browser.enableSwipeToDismiss = YES;
+        browser.displayTagsActionButton = NO;
         navCon.hidesBarsOnSwipe = YES;
         [navCon pushViewController:browser animated:YES];
         SDWebImagePrefetcher *fetcher = [SDWebImagePrefetcher sharedImagePrefetcher];

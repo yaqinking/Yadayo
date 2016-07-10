@@ -10,7 +10,7 @@
 
 @interface YDTorrentTableViewCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UILabel *pubDateLabel;
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pubDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
