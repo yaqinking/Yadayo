@@ -752,9 +752,7 @@
 - (void)dispatchFeedInfoToBlock {
     if (info) {
         if (_parsedItemBlock) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                _parsedItemBlock(self, self.info, nil);
-            });
+            _parsedItemBlock(self, self.info, nil);
         }
         // Debug log
         MWLog(@"MWFeedParser: Feed info for \"%@\" successfully parsed", info.title);
@@ -774,9 +772,7 @@
         // Debug log
         MWLog(@"MWFeedParser: Feed item \"%@\" successfully parsed", item.title);
         if (_parsedItemBlock) {
-            dispatch_async(dispatch_get_main_queue(),^{
-                _parsedItemBlock(self, nil, item);
-            });
+            _parsedItemBlock(self, nil, item);
         }
         // Finish
         self.item = nil;

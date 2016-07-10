@@ -82,7 +82,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     YDSite *site = [self siteForRowAtIndexPath:indexPath];
-    NSLog(@"Site %@",site);
     switch (site.type.integerValue) {
         case 1:
             [self performDanbooruSites:site];
@@ -100,19 +99,19 @@
 }
 
 - (void)performDanbooruSites:(YDSite *)site {
-    YDTagsViewController *tagsVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YDDanbooruSites"];
+    YDTagsViewController *tagsVC = [[UIStoryboard storyboardWithName:@"Danbooru" bundle:nil] instantiateViewControllerWithIdentifier:@"YDDanbooruSites"];
     tagsVC.site = site;
     [self.navigationController pushViewController:tagsVC animated:YES];
 }
 
 - (void)performBTSites:(YDSite *)site {
-    YDKeywordsViewController *keywordsVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YDBTSites"];
+    YDKeywordsViewController *keywordsVC = [[UIStoryboard storyboardWithName:@"BT" bundle:nil] instantiateViewControllerWithIdentifier:@"YDBTSites"];
     keywordsVC.site = site;
     [self.navigationController pushViewController:keywordsVC animated:YES];
 }
 
 - (void)performRSSSites:(YDSite *)site {
-    YDRSSNavigationController *navCon = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YDRSSNav"];
+    YDRSSNavigationController *navCon = [[UIStoryboard storyboardWithName:@"RSS" bundle:nil] instantiateViewControllerWithIdentifier:@"YDRSSNav"];
     YDRSSViewController *rssVC = navCon.childViewControllers[0];
     rssVC.site = site;
     [self.navigationController pushViewController:rssVC animated:YES];

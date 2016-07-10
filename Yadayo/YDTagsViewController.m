@@ -29,7 +29,6 @@
     } else {
         [self setupGeneralNavagationItems];
     }
-    NSLog(@"viewDidLoad %i",self.site.tags.count);
 //    [self setupTableView];
 }
 
@@ -54,7 +53,6 @@
 }
 
 - (void)addSelectTags {
-    NSLog(@"Add Select tags");
     __block YDSite *site = [[YDCoreDataStackManager sharedManager] siteForName:self.site.name];
     NSArray<NSIndexPath *> *selectIndexPaths = self.tableView.indexPathsForSelectedRows;
     [selectIndexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull indexPath, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -71,7 +69,6 @@
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController setHidesBarsOnSwipe:NO];
-    NSLog(@"viewDidAppear %i",self.site.tags.count);
     [self.tableView reloadData];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 }
@@ -97,7 +94,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"numberOfRowsInSection %i", self.site.tags.count);
     return self.site.tags.count;
 }
 
@@ -113,7 +109,7 @@
         return;
     }
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    UINavigationController *navCon = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YDTagDetailNav"];
+    UINavigationController *navCon = [[UIStoryboard storyboardWithName:@"Danbooru" bundle:nil] instantiateViewControllerWithIdentifier:@"YDTagDetailNav"];
     YDTag *tag = [self tagForRowAtIndexPath:indexPath];
     YDPhotosViewController *photosVC = navCon.childViewControllers[0];
     photosVC.tag = tag;
@@ -132,12 +128,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%i", editingStyle);
     if (editingStyle == UITableViewCellEditingStyleInsert) {
-        NSLog(@"Insert");
     }
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSLog(@"Delete");
     }
 }
 

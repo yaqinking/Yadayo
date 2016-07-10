@@ -109,7 +109,6 @@
 }
 
 - (void)scrollScreenDistance:(UITapGestureRecognizer *)recongizer {
-    NSLog(@"Taped");
 }
 
 - (BOOL)prefersStatusBarHidden {

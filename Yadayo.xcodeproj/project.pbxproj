@@ -38,6 +38,9 @@
 		F45575581CFB0C5D00E37799 /* YDKeywordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F45575571CFB0C5D00E37799 /* YDKeywordDetailViewController.m */; };
 		F455755B1CFB11F600E37799 /* YDTorrentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F455755A1CFB11F600E37799 /* YDTorrentTableViewCell.m */; };
 		F45843281D30EC8200DEC70A /* YDBackgroundFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F45843271D30EC8200DEC70A /* YDBackgroundFetcher.m */; };
+		F458432B1D32700000DEC70A /* RSS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F45843291D32700000DEC70A /* RSS.storyboard */; };
+		F45843301D3271A800DEC70A /* BT.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F458432E1D3271A800DEC70A /* BT.storyboard */; };
+		F45843321D3271CB00DEC70A /* Danbooru.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F45843311D3271CB00DEC70A /* Danbooru.storyboard */; };
 		F470FBFC1CF7253800CCBDB3 /* YDLocalImageDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F470FBFB1CF7253800CCBDB3 /* YDLocalImageDataSource.m */; };
 		F470FBFF1CF7255C00CCBDB3 /* YDPreloadPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F470FBFE1CF7255C00CCBDB3 /* YDPreloadPhotoManager.m */; };
 		F470FC021CF726A700CCBDB3 /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = F470FC011CF726A700CCBDB3 /* Picture.m */; };
@@ -136,6 +139,9 @@
 		F455755A1CFB11F600E37799 /* YDTorrentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YDTorrentTableViewCell.m; path = View/YDTorrentTableViewCell.m; sourceTree = "<group>"; };
 		F45843261D30EC8200DEC70A /* YDBackgroundFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBackgroundFetcher.h; sourceTree = "<group>"; };
 		F45843271D30EC8200DEC70A /* YDBackgroundFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBackgroundFetcher.m; sourceTree = "<group>"; };
+		F458432A1D32700000DEC70A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RSS.storyboard; sourceTree = "<group>"; };
+		F458432F1D3271A800DEC70A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/BT.storyboard; sourceTree = "<group>"; };
+		F45843311D3271CB00DEC70A /* Danbooru.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Danbooru.storyboard; sourceTree = "<group>"; };
 		F470FBFA1CF7253800CCBDB3 /* YDLocalImageDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDLocalImageDataSource.h; sourceTree = "<group>"; };
 		F470FBFB1CF7253800CCBDB3 /* YDLocalImageDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDLocalImageDataSource.m; sourceTree = "<group>"; };
 		F470FBFD1CF7255C00CCBDB3 /* YDPreloadPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDPreloadPhotoManager.h; sourceTree = "<group>"; };
@@ -248,6 +254,9 @@
 				F4D7A5591CF86CD3009DCF81 /* Danbooru */,
 				F49DCE3D1CFAAA36008E29AF /* BT */,
 				F445B9991CF67FC500C36A9B /* Main.storyboard */,
+				F45843311D3271CB00DEC70A /* Danbooru.storyboard */,
+				F458432E1D3271A800DEC70A /* BT.storyboard */,
+				F45843291D32700000DEC70A /* RSS.storyboard */,
 				F445B99C1CF67FC500C36A9B /* Yadayo.xcdatamodeld */,
 				F445B9901CF67FC500C36A9B /* Supporting Files */,
 				F445B9D11CF68A5200C36A9B /* YDCoreDataStackManager.h */,
@@ -494,7 +503,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F445B9A31CF67FC500C36A9B /* LaunchScreen.storyboard in Resources */,
+				F458432B1D32700000DEC70A /* RSS.storyboard in Resources */,
+				F45843301D3271A800DEC70A /* BT.storyboard in Resources */,
 				F445B9A01CF67FC500C36A9B /* Assets.xcassets in Resources */,
+				F45843321D3271CB00DEC70A /* Danbooru.storyboard in Resources */,
 				F445B99B1CF67FC500C36A9B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -687,6 +699,22 @@
 				F45312B81CFD3C840085342A /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F45843291D32700000DEC70A /* RSS.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F458432A1D32700000DEC70A /* Base */,
+			);
+			name = RSS.storyboard;
+			sourceTree = "<group>";
+		};
+		F458432E1D3271A800DEC70A /* BT.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F458432F1D3271A800DEC70A /* Base */,
+			);
+			name = BT.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

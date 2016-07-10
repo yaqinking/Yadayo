@@ -76,17 +76,11 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    const char *data = [deviceToken bytes];
-    NSMutableString *token = [NSMutableString string];
-    for (NSUInteger i = 0; i < [deviceToken length]; i++) {
-        [token appendFormat:@"%02.2hhX", data[i]];
-    }
-    NSLog(@"Token %@", token);
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
-            NSLog(@"Success upload device token to parse server %@", [currentInstallation deviceToken]);
+//            NSLog(@"Success upload device token to parse server %@", [currentInstallation deviceToken]);
         } else {
             NSLog(@"Save device tokent error %@", [error localizedDescription]);
         }
@@ -102,7 +96,6 @@
     if (contentAvailable == 1) {
         [[YDBackgroundFetcher sharedFetcher] backgroundFetchDataWithCompletionHandler:completionHandler];
     } else {
-        NSLog(@"PFPush handle push %@", userInfo);
         [PFPush handlePush:userInfo];
         completionHandler(UIBackgroundFetchResultNoData);
     }
@@ -111,7 +104,6 @@
 #pragma mark - Background Fetch
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    NSLog(@"Background fetch");
     [[YDBackgroundFetcher sharedFetcher] backgroundFetchDataWithCompletionHandler:completionHandler];
 }
 

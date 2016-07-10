@@ -96,11 +96,6 @@ NSString *const ApplicationCacheDirectoryName = @"yadayo-cache.sqlite";
         NSLog(@"Unresolved cache error %@, %@", error, [error userInfo]);
         abort();
     }
-    
-    NSURL *finaliCloudURL = [store URL];
-    NSLog(@"finaliCloudURL: %@", finaliCloudURL);
-    NSURL *finalCacheStoreURL = [cacheStore URL];
-    NSLog(@"Cache Store URL %@", finalCacheStoreURL);
 
     return _persistentStoreCoordinator;
 }

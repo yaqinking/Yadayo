@@ -33,7 +33,6 @@
     [self setupParsingData];
     [self fetchSavedData];
     [self setupFeedParser];
-    NSLog(@"Self Nav Con %@ Class %@",self.navigationController, [self.navigationController class]);
 }
 
 - (void)setupTableView {
@@ -61,13 +60,11 @@
     NSURL *feedURL = [NSURL URLWithString:feedURLString];
     self.feedParser = [[MWFeedParser alloc] initWithFeedURL:feedURL
                                             parsedItemBlock:^(MWFeedParser *feedParser, MWFeedInfo *feedInfo, MWFeedItem *feedItem) {
-                                                if (feedInfo) {
-                                                    NSLog(@"Feed Info \n title %@ \n link %@ \n summary %@ \n url %@ \n",feedInfo.title, feedInfo.link, feedInfo.summary, feedInfo.url);
-                                                    NSLog(@"Feed Info END");
-                                                }
                                                 if (feedItem) {
                                                     if (![self.dataManager existFeedItem:feedItem]) {
-                                                        NSLog(@"Insert %@",feedItem.title);
+                                                        if (IS_DEBUG_MODE) {
+                                                            NSLog(@"Insert %@",feedItem.title);
+                                                        }
                                                         [self.dataManager insertFeedItem:feedItem
                                                                                 siteName:self.siteName
                                                                              siteKeyword:self.siteKeyword];
@@ -75,7 +72,6 @@
                                                 }
                                                 
                                             } finisedBlock:^{
-                                                NSLog(@"Finished");
                                                 [self.dataManager saveContext];
                                                 [self fetchSavedData];
                                                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];

@@ -60,14 +60,12 @@
                                                 }
                                                 if (feedItem) {
                                                     if (![self.dataManager existFeedItem:feedItem]) {
-                                                        NSLog(@"Insert %@ %@",feedItem.title, [NSThread currentThread]);
                                                         [self.dataManager insertFeedItem:feedItem
                                                                                 siteName:self.site.name
                                                                              siteKeyword:nil];
                                                     }
                                                 }
                                             } finisedBlock:^{
-                                                NSLog(@"Finished");
                                                 [self.dataManager saveContext];
                                                 [self fetchSavedData];
                                                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];

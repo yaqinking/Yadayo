@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString * const YDParseAppId = @"Yadayo";// Your Parse App ID
+static NSString * const YDParseServer = @"http://192.168.1.110:1337/parse"; // Your Parse Server Domain/IP Address
+
 static NSString * const YDCategoryEntityName = @"Category";
 static NSString * const YDSiteEntityName     = @"Site";
 static NSString * const YDTagEntityName      = @"Tag";
@@ -20,9 +23,6 @@ static NSString * const kCreateDate  = @"createDate";
 
 // FeedItem key
 static NSString * const kPubDate = @"pubDate";
-
-// Preference key
-static NSString * const kReminderSiteName = @"reminder_site_name";
 
 static NSString * const YDSiteCellIdentifier     = @"SiteCell";
 static NSString * const YDPhotoCellIdentifier    = @"PhotoCell";
@@ -41,9 +41,6 @@ static NSString * const YDShowKeywordDetailSegueIdentifier = @"Show Keyword Deta
 static NSString * const YDShowItemDetailSegueIdentifier    = @"Show Item Detail";
 
 static NSString * const YDTagAll = @"";
-
-static NSString * const YDParseAppId = @"Yadayo";
-static NSString * const YDParseServer = @"http://192.168.1.110:1337/parse";
 
 @interface YDConstants : NSObject
 @end

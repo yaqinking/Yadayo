@@ -62,19 +62,15 @@
                                                                               if (![self.dataManager existFeedItem:feedItem]) {
                                                                                   haveNewData = YES;
                                                                                   [self.dataManager insertFeedItem:feedItem siteName:site.name siteKeyword:[NSString stringWithFormat:@"%@ %@",site.name,keyword.name]];
-                                                                                  NSLog(@"New Torrent Item %@", feedItem.title);
+//                                                                                  NSLog(@"New Torrent Item %@", feedItem.title);
                                                                                   UILocalNotification *localNotification = [[UILocalNotification alloc] init];
                                                                                   localNotification.alertBody = feedItem.title;
                                                                                   [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
                                                                               }
                                                                           } finisedBlock:^{
                                                                               finisedURLCount ++;
-                                                                              NSLog(@"BT finished block");
-//                                                                              currentKeywordsCounter ++;
-                                                                              NSLog(@"Keyword %@ SiteName %@ finised", keyword.name, site.name);
-                                                                              NSLog(@"Finished %i Total %i", finisedURLCount, totalURLCount);
                                                                               if (finisedURLCount == totalURLCount) {
-                                                                                  NSLog(@"All sites fetched BT");
+//                                                                                  NSLog(@"All sites fetched BT");
                                                                                   if (haveNewData) {
                                                                                       [self.dataManager saveContext];
                                                                                       completionHandler(UIBackgroundFetchResultNewData);
@@ -99,11 +95,9 @@
                                                                               [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
                                                                           }
                                                                       } finisedBlock:^{
-                                                                         NSLog(@"Normal finished block");
                                                                           finisedURLCount++;
-                                                                          NSLog(@"Finished %i Total %i", finisedURLCount, totalURLCount);
                                                                           if (finisedURLCount == totalURLCount) {
-                                                                              NSLog(@"All sites fetched Normal RSS");
+//                                                                              NSLog(@"All sites fetched Normal RSS");
                                                                               if (haveNewData) {
                                                                                   [self.dataManager saveContext];
                                                                                   completionHandler(UIBackgroundFetchResultNewData);

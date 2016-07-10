@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <development version="7000" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Tags View Controller-->
+        <scene sceneID="saw-t5-ii1">
+            <objects>
+                <tableViewController storyboardIdentifier="YDDanbooruSites" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bZY-do-Kkn" customClass="YDTagsViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qoA-BQ-TYh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TagCell" id="nhJ-wm-dHF" customClass="YDTagTableViewCell">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nhJ-wm-dHF" id="AuE-pj-E3Z">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bZY-do-Kkn" id="fBk-7k-UwZ"/>
+                            <outlet property="delegate" destination="bZY-do-Kkn" id="9g2-5R-qSr"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ebT-Ri-r1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1143" y="-2848"/>
+        </scene>
+        <!--Photos View Controller-->
+        <scene sceneID="qzU-go-IRK">
+            <objects>
+                <collectionViewController id="uwl-df-QlT" customClass="YDPhotosViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="oaJ-Ex-slp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Jp4-oQ-X76">
+                            <size key="itemSize" width="155" height="135"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="AVO-Hs-emf" customClass="YDPhotoCollectionViewCell">
+                                <rect key="frame" x="0.0" y="64" width="155" height="135"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="155" height="135"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WSg-Ij-MzN">
+                                            <rect key="frame" x="0.0" y="0.0" width="155" height="135"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="WSg-Ij-MzN" secondAttribute="bottom" id="5Sa-gb-ruP"/>
+                                    <constraint firstItem="WSg-Ij-MzN" firstAttribute="leading" secondItem="AVO-Hs-emf" secondAttribute="leading" id="Crp-Z9-VGq"/>
+                                    <constraint firstAttribute="trailing" secondItem="WSg-Ij-MzN" secondAttribute="trailing" id="Z3Q-Ch-jOe"/>
+                                    <constraint firstItem="WSg-Ij-MzN" firstAttribute="top" secondItem="AVO-Hs-emf" secondAttribute="top" id="jR9-G5-ngw"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="WSg-Ij-MzN" id="i0u-sq-umr"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="uwl-df-QlT" id="RrF-Cu-n2I"/>
+                            <outlet property="delegate" destination="uwl-df-QlT" id="7jj-Hg-SNP"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="Z1b-RI-hyU"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mX9-s3-wQS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2747" y="-2838"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="z8O-cH-u9a">
+            <objects>
+                <navigationController storyboardIdentifier="YDTagDetailNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="A27-pS-Boo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UJK-eg-ysr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uwl-df-QlT" kind="relationship" relationship="rootViewController" id="rYG-5m-q9J"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OjW-6g-cNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1895" y="-2838"/>
+        </scene>
+    </scenes>
+</document>

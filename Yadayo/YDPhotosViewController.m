@@ -178,7 +178,6 @@
 }
 
 - (CGSize )calculateCollectionViewItemSize {
-    NSLog(@"Calc");
     self.screenWidth = self.screenSize.width;
     self.screenHeight = self.screenSize.height;
     int splitScreenWidth = (int)self.screenSize.width;
@@ -609,7 +608,6 @@
 }
 
 - (void)dealloc {
-    NSLog(@"%@ dealloc",[self class]);
     [[YDPreloadPhotoManager manager] cancelPreloading];
 }
 
