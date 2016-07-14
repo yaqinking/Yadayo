@@ -413,41 +413,12 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2lm-QO-Oep">
-                                        <rect key="frame" x="0.0" y="346" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2lm-QO-Oep" id="rDn-z5-AXj">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acknowledgements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdX-z0-uQM">
-                                                    <rect key="frame" x="16" y="11" width="173" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="173" id="Uss-ab-Bip"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                                                        <rect key="frame" x="16" y="12" width="173" height="21"/>
-                                                    </variation>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="mdX-z0-uQM" firstAttribute="leading" secondItem="rDn-z5-AXj" secondAttribute="leadingMargin" constant="8" id="dNX-dV-XtS"/>
-                                                <constraint firstItem="mdX-z0-uQM" firstAttribute="centerY" secondItem="rDn-z5-AXj" secondAttribute="centerY" id="hcc-NS-zBw"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="cig-QW-Zcu" kind="show" id="hNH-8Z-rzj"/>
-                                        </connections>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Preload &amp; Offline" id="7X2-Yf-n3k">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6vT-dq-EhD">
-                                        <rect key="frame" x="0.0" y="441" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="397" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6vT-dq-EhD" id="IVR-ee-0tM">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -478,7 +449,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WJQ-aO-kgC">
-                                        <rect key="frame" x="0.0" y="485" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="441" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WJQ-aO-kgC" id="phd-kE-oe6">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -513,7 +484,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                             <tableViewSection id="xzP-cS-8AJ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="j20-oc-iIN">
-                                        <rect key="frame" x="0.0" y="565" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="521" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j20-oc-iIN" id="h36-B2-g50">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
@@ -539,7 +510,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="kcX-vp-Zcx">
-                                        <rect key="frame" x="0.0" y="609" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="565" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kcX-vp-Zcx" id="UBU-pF-Agm">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
@@ -654,7 +625,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLu-Tz-wSf">
                                             <rect key="frame" x="16" y="11" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TYg-lW-3Tb">
@@ -737,65 +708,7 @@ Category: Add a new category or select one from saved.Leave blank will be uncate
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hhx-Iq-Ror" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1443" y="-572"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="b7I-lh-w9l">
-            <objects>
-                <viewController id="cig-QW-Zcu" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="d1f-ef-Qvg"/>
-                        <viewControllerLayoutGuide type="bottom" id="xBX-zw-sep"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="IXu-r8-why">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uud-bW-X4D">
-                                <rect key="frame" x="20" y="64" width="560" height="536"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Konachan use these Open Source Libraries or tools
-
-AFNetworking
-https://github.com/AFNetworking/AFNetworking
-
-MWPhotoBrowser
-https://github.com/mwaterfall/MWPhotoBrowser
-
-SDWebImage
-https://github.com/rs/SDWebImage
-
-MBProgressHUD
-https://github.com/jdg/MBProgressHUD
-
-DACircularProgress
-https://github.com/danielamitay/DACircularProgress
-
-CocoaPods
-https://cocoapods.org/
-
-UIActivityIndicator-for-SDWebImage
-https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage</string>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                                    <rect key="frame" x="20" y="64" width="760" height="736"/>
-                                </variation>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="xBX-zw-sep" firstAttribute="top" secondItem="Uud-bW-X4D" secondAttribute="bottom" id="1oQ-aI-6oo"/>
-                            <constraint firstItem="Uud-bW-X4D" firstAttribute="top" secondItem="d1f-ef-Qvg" secondAttribute="bottom" id="4jO-RY-TlR"/>
-                            <constraint firstItem="Uud-bW-X4D" firstAttribute="leading" secondItem="IXu-r8-why" secondAttribute="leadingMargin" id="BFG-l6-1vj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Uud-bW-X4D" secondAttribute="trailing" id="cBJ-cb-9nc"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KHg-xP-diA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2104" y="-572"/>
+            <point key="canvasLocation" x="-1513" y="-741"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sEs-8g-VeK">
@@ -818,40 +731,40 @@ https://github.com/JJSaccolo/UIActivityIndicator-for-SDWebImage</string>
         <!--YDRSSNav-->
         <scene sceneID="fyP-jK-1Dr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qNA-cC-VJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardIdentifier="YDRSSNav" storyboardName="RSS" referencedIdentifier="YDRSSNav" id="pA4-JL-2BK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qNA-cC-VJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-829" y="-2405"/>
         </scene>
         <!--YDRSSSites-->
         <scene sceneID="gkh-Xk-vAL">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="T0E-C8-T9i" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardIdentifier="YDRSSSites" storyboardName="RSS" referencedIdentifier="YDRSSSites" id="7z2-EO-mcD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T0E-C8-T9i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-961.5" y="-2405"/>
         </scene>
         <!--YDBTSites-->
         <scene sceneID="bq7-wk-WcD">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tt5-kz-FZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardIdentifier="YDBTSites" storyboardName="BT" referencedIdentifier="YDBTSites" id="fAM-OG-cms" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tt5-kz-FZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-965.5" y="-2335"/>
         </scene>
         <!--YDBTSiteNav-->
         <scene sceneID="4fs-Mc-fvG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NCg-xm-Lhs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardIdentifier="YDBTSiteNav" storyboardName="BT" referencedIdentifier="YDBTSiteNav" id="6fd-0b-cb8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NCg-xm-Lhs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-821.5" y="-2335"/>
         </scene>
         <!--YDDanbooruSites-->
         <scene sceneID="x1t-bF-jH1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wi5-Fs-TKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardIdentifier="YDDanbooruSites" storyboardName="Danbooru" referencedIdentifier="YDDanbooruSites" id="REd-Qc-n4p" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wi5-Fs-TKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-944.5" y="-2464"/>
         </scene>

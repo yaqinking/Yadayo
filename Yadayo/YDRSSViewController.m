@@ -12,6 +12,7 @@
 #import "YDFeedItemTableViewCell.h"
 #import "YDUtil.h"
 #import "YDRSSDetailViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface YDRSSViewController ()
 
@@ -63,6 +64,8 @@
                                                         [self.dataManager insertFeedItem:feedItem
                                                                                 siteName:self.site.name
                                                                              siteKeyword:nil];
+                                                    } else {
+                                                        [self.feedParser stopParsing];
                                                     }
                                                 }
                                             } finisedBlock:^{
@@ -113,7 +116,7 @@
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    return self.site.galleryMode.boolValue ? NO : YES;
+    return self.site.galleryMode.boolValue ? NO : YES;// 如果是看图模式，不显示条目详情页面，直接进入单张图片展示图库页面
 }
 
 - (YDCoreDataStackManager *)dataManager {

@@ -131,8 +131,6 @@
 		F445B9EB1CF6B13700C36A9B /* YDConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDConstants.m; sourceTree = "<group>"; };
 		F45312B41CFD39A40085342A /* YDUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDUtil.h; sourceTree = "<group>"; };
 		F45312B51CFD39A50085342A /* YDUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDUtil.m; sourceTree = "<group>"; };
-		F45312B71CFD3C830085342A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		F45312B81CFD3C840085342A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		F45575561CFB0C5D00E37799 /* YDKeywordDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDKeywordDetailViewController.h; sourceTree = "<group>"; };
 		F45575571CFB0C5D00E37799 /* YDKeywordDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDKeywordDetailViewController.m; sourceTree = "<group>"; };
 		F45575591CFB11F600E37799 /* YDTorrentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YDTorrentTableViewCell.h; path = View/YDTorrentTableViewCell.h; sourceTree = "<group>"; };
@@ -687,7 +685,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				F445B99A1CF67FC500C36A9B /* Base */,
-				F45312B71CFD3C830085342A /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -696,7 +693,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				F445B9A21CF67FC500C36A9B /* Base */,
-				F45312B81CFD3C840085342A /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

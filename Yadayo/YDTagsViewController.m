@@ -10,6 +10,7 @@
 #import "YDCoreDataStackManager.h"
 #import "YDPhotosViewController.h"
 #import "YDTagTableViewCell.h"
+#import "MBProgressHUD.h"
 
 @interface YDTagsViewController ()
 
@@ -63,6 +64,7 @@
         newTag.site = site;
     }];
     [[YDCoreDataStackManager sharedManager] saveContext];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -114,17 +116,10 @@
     YDPhotosViewController *photosVC = navCon.childViewControllers[0];
     photosVC.tag = tag;
     photosVC.site = self.site;
-    if (iPad) {
-        if (self.isTagListMode) {
-            photosVC.tagListMode = YES;
-            [self.navigationController pushViewController:photosVC animated:YES];
-        } else {
-//            [self.splitViewController presentViewController:navCon animated:YES completion:nil];
-            [self.navigationController pushViewController:photosVC animated:YES];
-        }
-    } else if (iPhone) {
-        [self.navigationController pushViewController:photosVC animated:YES];
+    if (self.isTagListMode) {
+        photosVC.tagListMode = YES;
     }
+    [self.navigationController pushViewController:photosVC animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -99,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8k5-Li-W4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2747" y="-2115"/>
+            <point key="canvasLocation" x="2491" y="-1911"/>
         </scene>
         <!--Keyword Detail View Controller-->
         <scene sceneID="gMz-fO-xPf">
@@ -129,7 +129,7 @@
                                                 <constraint firstAttribute="height" constant="22" id="5g8-3w-EW0"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -158,7 +158,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kI7-YJ-kmy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1873" y="-1209"/>
+            <point key="canvasLocation" x="1830" y="-1209"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="chm-ZR-Nzf">

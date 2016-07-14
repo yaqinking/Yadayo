@@ -31,11 +31,11 @@
 
 - (void)backgroundFetchDataWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     NSArray *notificationSites = [[YDCoreDataStackManager sharedManager] notificationSites];
-    if (notificationSites.count != 0) {
+    if (notificationSites.count > 0) {
         [self fetchNewFeedItemFromSites:notificationSites completionHandler:completionHandler];
-    } /*else {
+    } else {
         completionHandler(UIBackgroundFetchResultFailed);
-    }*/
+    }
 }
 
 - (void)fetchNewFeedItemFromSites:(NSArray<YDSite *> *)sites completionHandler:(void(^)(UIBackgroundFetchResult))completionHandler {
@@ -66,6 +66,8 @@
                                                                                   UILocalNotification *localNotification = [[UILocalNotification alloc] init];
                                                                                   localNotification.alertBody = feedItem.title;
                                                                                   [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+                                                                              } else {
+                                                                                  [feedParser stopParsing];
                                                                               }
                                                                           } finisedBlock:^{
                                                                               finisedURLCount ++;
@@ -93,6 +95,8 @@
                                                                               UILocalNotification *localNotification = [[UILocalNotification alloc] init];
                                                                               localNotification.alertBody = feedItem.title;
                                                                               [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+                                                                          } else {
+                                                                              [feedParser stopParsing];
                                                                           }
                                                                       } finisedBlock:^{
                                                                           finisedURLCount++;

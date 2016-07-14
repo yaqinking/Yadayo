@@ -26,6 +26,9 @@
     [super viewDidLoad];
 //    [self setupNavigationBar];
 //    [self setupTableView];
+//    [[UITableViewCell appearance] setBackgroundColor:[UIColor blackColor]];
+//    [[UILabel appearance] setTextColor:[UIColor whiteColor]];
+//    [[UITableView appearance] setSeparatorColor:[UIColor grayColor]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

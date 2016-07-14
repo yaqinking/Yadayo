@@ -40,6 +40,9 @@
 @property (nonatomic, strong) NSString *downloadImageTypeKey;
 @property (nonatomic, assign) CGSize itemSize;
 
+
+@property (nonatomic, strong) NSMutableDictionary *aspectCache;
+
 @end
 
 @implementation YDPhotosViewController
@@ -61,9 +64,7 @@
     [self observeNotifications];
 //    [self setupGestures];
     [[SDImageCache sharedImageCache] setMaxMemoryCost:[self deviceMaxMemoryCost]];
-    if (iPad && !self.isTagListMode) {
-//        [self setupNavigationItems];
-    }
+    self.aspectCache = [NSMutableDictionary new];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -146,7 +147,26 @@
 - (nonnull UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     YDPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:YDPhotoCellIdentifier forIndexPath:indexPath];
     NSURL *photoURL = [self.previewPhotosURL objectAtIndex:indexPath.row];
-    [cell.imageView sd_setImageWithURL:photoURL usingProgressView:nil];
+//    [cell.imageView sd_setImageWithURL:photoURL usingProgressView:nil];
+    [cell.imageView sd_setImageWithURL:photoURL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (!self.aspectCache[imageURL.absoluteString]) {
+            //Performance problem think use NSCache
+            CGFloat width = image.size.width;
+            CGFloat height = image.size.height;
+            CGFloat aspect = width/height;
+            CGFloat cellW, cellH;
+
+            //iPhone Horizental
+            cellW = self.screenWidth;
+            cellH = cellW / aspect;
+            if (cellH > self.screenHeight) {
+                cellH = self.screenHeight;
+                cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+            }
+            self.aspectCache[imageURL.absoluteString] = @{ @"width" : @(cellW), @"height" : @(cellH)};
+            [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+        }
+    }];
     return cell;
 }
 
@@ -170,7 +190,15 @@
     if (self.itemSize.width == 0) {
         self.itemSize = [self calculateCollectionViewItemSize];
     }
-    return self.itemSize;
+    NSURL *photoURL = self.previewPhotosURL[indexPath.row];
+//    NSLog(@"SizeforItem %i Cache Value %@", indexPath.row, self.aspectCache[photoURL.absoluteString]);
+    NSDictionary *size = self.aspectCache[photoURL.absoluteString];
+    CGFloat width = [size[@"width"] floatValue];
+    CGFloat height = [size[@"height"] floatValue];
+//    if ([self interfaceOrientation] == UIInterfaceOrientationPortrait) {
+        return width > 0 ? CGSizeMake(width, height) : self.itemSize;
+//    }
+//    return self.itemSize;
 }
 
 - (void)recalculateCollectionViewItemSize {
