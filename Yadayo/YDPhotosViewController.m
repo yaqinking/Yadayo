@@ -43,6 +43,8 @@
 
 @property (nonatomic, strong) NSMutableDictionary *aspectCache;
 
+@property (strong) dispatch_queue_t aspectCacaculateQueue;
+
 @end
 
 @implementation YDPhotosViewController
@@ -65,6 +67,7 @@
 //    [self setupGestures];
     [[SDImageCache sharedImageCache] setMaxMemoryCost:[self deviceMaxMemoryCost]];
     self.aspectCache = [NSMutableDictionary new];
+    self.aspectCacaculateQueue = dispatch_queue_create("aspectCalculateQueue", 0);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -147,26 +150,31 @@
 - (nonnull UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     YDPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:YDPhotoCellIdentifier forIndexPath:indexPath];
     NSURL *photoURL = [self.previewPhotosURL objectAtIndex:indexPath.row];
-//    [cell.imageView sd_setImageWithURL:photoURL usingProgressView:nil];
     [cell.imageView sd_setImageWithURL:photoURL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        if (!self.aspectCache[imageURL.absoluteString]) {
-            //Performance problem think use NSCache
-            CGFloat width = image.size.width;
-            CGFloat height = image.size.height;
-            CGFloat aspect = width/height;
-            CGFloat cellW, cellH;
-
-            //iPhone Horizental
-            cellW = self.screenWidth;
-            cellH = cellW / aspect;
-            if (cellH > self.screenHeight) {
-                cellH = self.screenHeight;
-                cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        dispatch_async(self.aspectCacaculateQueue, ^{
+//            NSLog(@"Current Thread %@",[NSThread currentThread]);
+            if (!self.aspectCache[imageURL.absoluteString]) {
+                //Performance problem think use NSCache
+                CGFloat width = image.size.width;
+                CGFloat height = image.size.height;
+                CGFloat aspect = width/height;
+                CGFloat cellW, cellH;
+                
+                //iPhone Horizental
+                cellW = self.screenWidth;
+                cellH = cellW / aspect;
+                if (cellH > self.screenHeight) {
+                    cellH = self.screenHeight;
+                    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+                }
+                self.aspectCache[imageURL.absoluteString] = @{ @"width" : @(cellW), @"height" : @(cellH)};
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+                });
             }
-            self.aspectCache[imageURL.absoluteString] = @{ @"width" : @(cellW), @"height" : @(cellH)};
-            [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
-        }
-    }];
+        });
+    } usingProgressView:nil];
     return cell;
 }
 

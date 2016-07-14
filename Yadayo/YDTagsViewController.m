@@ -30,6 +30,7 @@
     } else {
         [self setupGeneralNavagationItems];
     }
+    
 //    [self setupTableView];
 }
 
