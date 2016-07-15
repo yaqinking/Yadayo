@@ -166,6 +166,7 @@
                 cellH = cellW / aspect;
                 if (cellH > self.screenHeight) {
                     cellH = self.screenHeight;
+//                    cellW = self.screenWidth/2-2;
                     weakCell.imageView.contentMode = UIViewContentModeScaleAspectFit;
                 }
                 self.aspectCache[imageURL.absoluteString] = @{ @"width" : @(cellW), @"height" : @(cellH)};

@@ -50,8 +50,6 @@
     [self setupFeedParser];
 }
 
-#warning Have leaks
-
 - (void)setupFeedParser {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self.refreshControl beginRefreshing];

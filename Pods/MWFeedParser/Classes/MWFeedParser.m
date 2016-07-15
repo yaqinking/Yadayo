@@ -374,9 +374,6 @@
                 _failureBlock(error);
             });
         }
-        _parsedItemBlock = nil;
-        _completionBlock = nil;
-        _failureBlock = nil;
     }
     
 }

@@ -21,7 +21,8 @@ NSString * const PreloadPhotoPrograssCompletedKey          = @"completed";
 @property (nonatomic, strong) NSMutableArray *preferchURLS;
 @property (nonatomic, strong) NSString *downloadImageTypeKey;
 @property (nonatomic, strong) SDWebImagePrefetcher *fetcher;
-#warning Prefetcher queue on different queue
+@property (nonatomic, strong) dispatch_queue_t prefetchQueue;
+
 @end
 
 @implementation YDPreloadPhotoManager
@@ -30,6 +31,7 @@ NSString * const PreloadPhotoPrograssCompletedKey          = @"completed";
     self = [super init];
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDownloadImageTypeChanged) name:KonachanDownloadImageTypeDidChangedNotification object:nil];
+        self.prefetchQueue = dispatch_queue_create("moe.yaqinking.Yadayo.preloadPhotoManagerQueue", NULL);
     }
     return self;
 }
@@ -46,6 +48,7 @@ NSString * const PreloadPhotoPrograssCompletedKey          = @"completed";
 - (void)GET:(NSString *)url {
     self.fetcher = [SDWebImagePrefetcher sharedImagePrefetcher];
     self.fetcher.maxConcurrentDownloads = 5;
+    self.fetcher.prefetcherQueue = self.prefetchQueue;
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:url
       parameters:nil
@@ -69,16 +72,20 @@ NSString * const PreloadPhotoPrograssCompletedKey          = @"completed";
                      }
                  }
                  [self.fetcher prefetchURLs:self.preferchURLS progress:^(NSUInteger noOfFinishedUrls, NSUInteger noOfTotalUrls) {
+                     /*
                      NSNumber *finised = [NSNumber numberWithUnsignedInteger:noOfFinishedUrls];
                      NSNumber *total = [NSNumber numberWithUnsignedInteger:noOfTotalUrls];
                      NSDictionary *userInfo = @{ PreloadPhotoProgressFinishedKey: finised,
                                                  PreloadPhotoProgressTotalKey: total,
                                                  PreloadPhotoPrograssCompletedKey: @NO };
                      [[NSNotificationCenter defaultCenter] postNotificationName:PreloadPhotoProgressDidChangeNotification object:nil userInfo:userInfo];
+                      */
                  } completed:^(NSUInteger noOfFinishedUrls, NSUInteger noOfSkippedUrls) {
                      [self.preferchURLS removeAllObjects];
+                     /*
                      NSDictionary *userInfo = @{ PreloadPhotoPrograssCompletedKey: @YES };
                      [[NSNotificationCenter defaultCenter] postNotificationName:PreloadPhotoProgressDidChangeNotification object:nil userInfo:userInfo];
+                      */
                  }];
                  
              });
