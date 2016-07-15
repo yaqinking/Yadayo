@@ -63,11 +63,11 @@
         [self setupPhotosURLWithTag:self.tag.name andPageoffset:self.pageOffset];
     }
     [self setupCollectionViewLayout];
-    [self observeNotifications];
+//    [self observeNotifications];
 //    [self setupGestures];
     [[SDImageCache sharedImageCache] setMaxMemoryCost:[self deviceMaxMemoryCost]];
     self.aspectCache = [NSMutableDictionary new];
-    self.aspectCacaculateQueue = dispatch_queue_create("aspectCalculateQueue", 0);
+    self.aspectCacaculateQueue = dispatch_queue_create("moe.yaqinking.Yadayo.aspectCalculateQueue", 0);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -150,6 +150,7 @@
 - (nonnull UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     YDPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:YDPhotoCellIdentifier forIndexPath:indexPath];
     NSURL *photoURL = [self.previewPhotosURL objectAtIndex:indexPath.row];
+    __weak YDPhotoCollectionViewCell *weakCell = cell;
     [cell.imageView sd_setImageWithURL:photoURL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         dispatch_async(self.aspectCacaculateQueue, ^{
 //            NSLog(@"Current Thread %@",[NSThread currentThread]);
@@ -165,7 +166,7 @@
                 cellH = cellW / aspect;
                 if (cellH > self.screenHeight) {
                     cellH = self.screenHeight;
-                    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+                    weakCell.imageView.contentMode = UIViewContentModeScaleAspectFit;
                 }
                 self.aspectCache[imageURL.absoluteString] = @{ @"width" : @(cellW), @"height" : @(cellH)};
                 dispatch_async(dispatch_get_main_queue(), ^{

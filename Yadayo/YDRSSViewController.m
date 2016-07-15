@@ -50,6 +50,8 @@
     [self setupFeedParser];
 }
 
+#warning Have leaks
+
 - (void)setupFeedParser {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self.refreshControl beginRefreshing];
@@ -73,6 +75,7 @@
                                                 [self fetchSavedData];
                                                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                                                 [self.refreshControl endRefreshing];
+                                                [self.feedParser clear]; // clear block memory issues
                                                 
                                             } failureBlock:^(NSError *error) {
                                                 NSLog(@"Failure");

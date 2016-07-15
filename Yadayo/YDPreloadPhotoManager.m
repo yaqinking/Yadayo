@@ -21,7 +21,7 @@ NSString * const PreloadPhotoPrograssCompletedKey          = @"completed";
 @property (nonatomic, strong) NSMutableArray *preferchURLS;
 @property (nonatomic, strong) NSString *downloadImageTypeKey;
 @property (nonatomic, strong) SDWebImagePrefetcher *fetcher;
-
+#warning Prefetcher queue on different queue
 @end
 
 @implementation YDPreloadPhotoManager

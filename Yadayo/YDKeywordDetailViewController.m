@@ -76,6 +76,7 @@
                                                 [self fetchSavedData];
                                                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                                                 [self.refreshControl endRefreshing];
+                                                [self.feedParser clear];
                                             } failureBlock:^(NSError *error) {
                                                 NSLog(@"Failure");
                                                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];

@@ -136,4 +136,6 @@ typedef void (^MWFeedParserParsedFailureBlock)(NSError *error);
 // Returns the URL
 - (NSURL *)url;
 
+- (void)clear;
+
 @end

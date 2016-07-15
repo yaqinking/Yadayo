@@ -148,6 +148,7 @@
     parseStructureAsContent = NO;
     self.pathOfElementWithXHTMLType = nil;
     hasEncounteredItems = NO;
+    
 }
 
 // Parse using URL for backwards compatibility
@@ -187,6 +188,12 @@
     // Cleanup & return
     return success;
     
+}
+
+- (void)clear {
+    _parsedItemBlock = nil;
+    _completionBlock = nil;
+    _failureBlock = nil;
 }
 
 // Begin XML parsing
@@ -331,7 +338,6 @@
         }
         // Reset
         [self reset];
-        
     }
     
 }
@@ -368,6 +374,9 @@
                 _failureBlock(error);
             });
         }
+        _parsedItemBlock = nil;
+        _completionBlock = nil;
+        _failureBlock = nil;
     }
     
 }
