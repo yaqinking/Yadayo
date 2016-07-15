@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSPersistentStore *cachePersistentStore;
+@property (nonatomic, strong) NSManagedObjectContext *privateContext;
 
 @end
 
@@ -100,9 +101,16 @@
 }
 
 - (void)insertImagesFromResonseObject:(id)responseObject {
-    //由于这里是从 TagPhotosViewController 创建的 data queue 里过来的，而 MOC（ManagedObjectContext） 不能在非创建时的 queue 里使用，有一定几率（数据变化量大的话，绝对）会出现 *** Terminating app due to uncaught exception 'NSGenericException', reason: '*** Collection <__NSCFSet: 0x5e0b930> was mutated while being enumerated... 错误，而我这个 MOC 是 main queue 的，So，返回主线程执行。
+    //[历史笔记]由于这里是从 TagPhotosViewController 创建的 data queue 里过来的，而 MOC（ManagedObjectContext） 不能在非创建时的 queue 里使用，有一定几率（数据变化量大的话，绝对）会出现 *** Terminating app due to uncaught exception 'NSGenericException', reason: '*** Collection <__NSCFSet: 0x5e0b930> was mutated while being enumerated... 错误，而我这个 MOC 是 main queue 的，So，返回主线程执行。
+    /*
+     2016/07/15 使用 PrivateContext 来把原本在 main queue 里执行的方法转移到 private queue 中，减少主线程等待时间。（可以使用 Instruments 的 Time Profiler 来查看每个方法执行的时间，记得勾选 Call Tree tab 里的 Top Functions、Hide　Sytem　Libraries）
+     参考：
+     1. Core Data Programming Guide: Concurrency https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/Concurrency.html
+     2. Core Data Tutorial: Multiple Managed Object Contexts https://www.raywenderlich.com/113489/core-data-tutorial-multiple-managed-object-contexts
+    */
     if ([responseObject isKindOfClass:[NSArray class]]) {
         [responseObject enumerateObjectsUsingBlock:^(NSDictionary *picDict, NSUInteger idx, BOOL * _Nonnull stop) {
+            
             NSString *previewURLString = picDict[PreviewURL];
             NSString *sampleURLString  = picDict[SampleURL];
             NSString *jpegURLString = picDict[JPEGURL];
@@ -112,13 +120,13 @@
             NSInteger create_at = [picDict[@"created_at"] integerValue];
             NSInteger image_id = [picDict[@"id"] integerValue];
             NSString *rating = picDict[@"rating"];
-            
             NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:YDImageEntityName];
             request.predicate = [NSPredicate predicateWithFormat:@"image_id == %i",image_id];
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                NSArray *fetchedImages = [[self.managedObjectContext executeFetchRequest:request error:NULL] copy];
+            
+            [self.privateContext performBlockAndWait:^{
+                NSArray *fetchedImages = [[self.privateContext executeFetchRequest:request error:NULL] copy];
                 if (fetchedImages.count == 0) {
-                    YDImage *image = [NSEntityDescription insertNewObjectForEntityForName:YDImageEntityName inManagedObjectContext:self.managedObjectContext];
+                    YDImage *image = [NSEntityDescription insertNewObjectForEntityForName:YDImageEntityName inManagedObjectContext:self.privateContext];
                     image.image_id = [NSNumber numberWithInteger:image_id];
                     image.create_at = [NSNumber numberWithInteger:create_at];
                     image.md5 = md5;
@@ -128,16 +136,27 @@
                     image.file_url = fileURLString;
                     image.jpeg_url = jpegURLString;
                     image.rating = rating;
-                    [self.managedObjectContext assignObject:image toPersistentStore:self.cachePersistentStore];
+                    [self.privateContext assignObject:image toPersistentStore:self.cachePersistentStore];
                 } else {
                     *stop = YES;
                 }
-            });
+            }];
         }];
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [self saveChanges];
-        });
+        [self.privateContext performBlock:^{
+            NSError *error = nil;
+            if (![self.privateContext save:&error]) {
+                NSLog(@"PrivateContext save error %@", [error localizedDescription]);
+            }
+        }];
     }
+}
+
+- (NSManagedObjectContext *)privateContext {
+    if (!_privateContext) {
+        _privateContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        [_privateContext setParentContext:self.managedObjectContext];
+    }
+    return _privateContext;
 }
 
 - (void)clearImages {
